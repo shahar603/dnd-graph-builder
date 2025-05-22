@@ -1,3 +1,22 @@
 {
-    
+    "types" : [
+        "familiar_of",
+        "familiar_with",
+        "worship",
+        "member_of",
+        "was_at",
+        "leave_from",
+        "arrive_at",
+        "guest_give",
+        "guest_complete",
+        "item_found",
+        "item_lost",
+        "item_given",
+        "item_bougth",
+        "object_interated",
+        "event_happend",
+        "happend",
+        "learned",
+        "happend_at_session"
+    ]
 }

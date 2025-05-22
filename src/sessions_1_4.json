@@ -1,0 +1,875 @@
+{
+  "entities": [
+    {
+      "entity_id": "PLAYER_NADAV_001",
+      "name": "Nadav",
+      "type": "Player",
+      "description": "The player of Vince.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "PLAYER_AVIV_001",
+      "name": "Aviv",
+      "type": "Player",
+      "description": "The player of Leonard.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "PLAYER_STELLASPLAYER_001",
+      "name": "Stella's Player",
+      "type": "Player",
+      "description": "The player of Stella (name not specified).",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "PC_VINCE_001",
+      "name": "Vince",
+      "type": "PC",
+      "description": "A member of the adventuring party. Remembered an ancient theory about dragons leaking magic. Inspected a zombie corpse and found necrotic magic worms.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "player": "PLAYER_NADAV_001",
+        "character_class": "Unknown (Assumed Wizard from example)",
+        "alignment": "Unknown (Assumed Neutral Good from example)"
+      }
+    },
+    {
+      "entity_id": "PC_STELLA_001",
+      "name": "Stella",
+      "type": "PC",
+      "description": "A member of the adventuring party. Her handy-work was key in dismantling Haldrix. Burned worms off Leonard's wound.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "player": "PLAYER_STELLASPLAYER_001",
+        "character_class": "Unknown",
+        "alignment": "Unknown"
+      }
+    },
+    {
+      "entity_id": "PC_LEONARD_001",
+      "name": "Leonard",
+      "type": "PC",
+      "description": "A member of the adventuring party. Found and identified an Amulet of Fire Absorption. Was infected by necrotic worms.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "player": "PLAYER_AVIV_001",
+        "character_class": "Unknown (Assumed Artificer from example)",
+        "alignment": "Unknown (Assumed Chaotic Good from example)"
+      }
+    },
+    {
+      "entity_id": "FACTION_TLOB_001",
+      "name": "tLoB",
+      "type": "Faction",
+      "description": "The Lords of Byriver (assumed). An authority in Byriver that recruits the party and assigns quests.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "alignment": "Unknown"
+      }
+    },
+    {
+      "entity_id": "NPC_TLOB_OFFICER_001",
+      "name": "tLoB's officer",
+      "type": "NPC",
+      "description": "An officer of tLoB who recruited the party for the initial Haldrix quest.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "aligment": "Unknown"
+      }
+    },
+    {
+      "entity_id": "NPC_HALDRIX_001",
+      "name": "Haldrix",
+      "type": "NPC",
+      "description": "A dragon (implied) who threatened Byriver, was ambushed, fought multiple times, and eventually defeated by the party. His attacks involved scorching the city.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "aligment": "Evil (implied)"
+      }
+    },
+    {
+      "entity_id": "LOCATION_BYRIVER_001",
+      "name": "Byriver",
+      "type": "Location",
+      "description": "A city threatened and attacked by Haldrix, later saved by the party. The party are named 'Heroes of Byriver'. It is located in the 'Kings stand' region.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "region": "Kings stand",
+        "location_type": "City"
+      }
+    },
+    {
+      "entity_id": "LOCATION_AHALLONA_TEMPLE_001",
+      "name": "Ahallona temple",
+      "type": "Location",
+      "description": "A temple south of Byriver where gold was to be pooled.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "region": "South of Byriver",
+        "location_type": "Temple"
+      }
+    },
+    {
+      "entity_id": "ITEM_GOLD_POOLED_001",
+      "name": "Pooled Gold",
+      "type": "Item",
+      "description": "Gold to be pooled at the Ahallona temple as a measure against Haldrix.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "price": 0,
+        "creator": "Unknown",
+        "rarity": "Common",
+        "magical": false,
+        "magic_school": "None",
+        "consumable": true
+      }
+    },
+    {
+      "entity_id": "LOCATION_MOUNTAINS_S2_001",
+      "name": "Mountains near Byriver",
+      "type": "Location",
+      "description": "Mountainous area where the party hiked for a day and fought a Giant.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "region": "Near Byriver",
+        "location_type": "Mountain Range"
+      }
+    },
+    {
+      "entity_id": "NPC_GIANT_S2_001",
+      "name": "Giant (Session 2)",
+      "type": "NPC",
+      "description": "A Giant fought by the party in the mountains during session 2.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "aligment": "Unknown"
+      }
+    },
+    {
+      "entity_id": "LOCATION_RUINED_SHRINE_001",
+      "name": "Ruined Shrine",
+      "type": "Location",
+      "description": "A shrine where Leonard found the Amulet of Fire Absorption. The party ambushed Haldrix here.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "region": "Mountains near Byriver",
+        "location_type": "Shrine"
+      }
+    },
+    {
+      "entity_id": "ITEM_AMULET_FIRE_ABSORPTION_001",
+      "name": "Amulet of Fire Absorption",
+      "type": "Item",
+      "description": "A magical amulet found and identified by Leonard in the ruined shrine.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "price": 0,
+        "creator": "Unknown",
+        "rarity": "Unknown",
+        "magical": true,
+        "magic_school": "Abjuration (likely)",
+        "consumable": false
+      }
+    },
+    {
+      "entity_id": "LOCATION_STEAMY_CAVERNS_001",
+      "name": "Steamy Caverns",
+      "type": "Location",
+      "description": "Weird caverns with a skull-shaped entrance, found by the party on their way back to Byriver.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "region": "Near Byriver",
+        "location_type": "Cavern"
+      }
+    },
+    {
+      "entity_id": "LOCATION_GIANTS_LAIR_001",
+      "name": "Lair of Giants",
+      "type": "Location",
+      "description": "A lair within the Steamy Caverns where Giants were tinkering with traps, riding equipment, and a steam generator. Contained Haldrix's room.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "region": "Steamy Caverns",
+        "location_type": "Lair"
+      }
+    },
+    {
+      "entity_id": "OBJECT_STEAM_GENERATOR_001",
+      "name": "Steam Generator",
+      "type": "Object",
+      "description": "A device found in the Giants' lair, dismantled by the party.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "location": "LOCATION_GIANTS_LAIR_001"
+      }
+    },
+    {
+      "entity_id": "NPC_GIANTS_LAIR_001",
+      "name": "Giants in Lair",
+      "type": "NPC",
+      "description": "Five Giants found in their lair, tinkering with equipment. Defeated by the party.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "aligment": "Unknown"
+      }
+    },
+    {
+      "entity_id": "ITEM_GLIDERS_001",
+      "name": "Gliders",
+      "type": "Item",
+      "description": "Found by the party in the Giants' Lair and used to reach Byriver quickly.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "price": 0,
+        "creator": "NPC_GIANTS_LAIR_001 (implied)",
+        "rarity": "Unknown",
+        "magical": false,
+        "magic_school": "None",
+        "consumable": false
+      }
+    },
+    {
+      "entity_id": "NPC_BALLISTA_CREW_001",
+      "name": "Ballista Crew",
+      "type": "NPC",
+      "description": "A crew in Byriver that needed rescuing during Haldrix's attack.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "aligment": "Unknown"
+      }
+    },
+    {
+      "entity_id": "NPC_PERFORMERS_001",
+      "name": "Travelling Performers",
+      "type": "NPC",
+      "description": "Performers in Byriver who had fireworks. The party helped them, and they used fireworks to stun Haldrix.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "aligment": "Unknown"
+      }
+    },
+    {
+      "entity_id": "ITEM_FIREWORKS_001",
+      "name": "Fireworks",
+      "type": "Item",
+      "description": "Belonging to travelling performers, used to stun Haldrix.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "price": 0,
+        "creator": "NPC_PERFORMERS_001 (implied)",
+        "rarity": "Common",
+        "magical": false,
+        "magic_school": "None",
+        "consumable": true
+      }
+    },
+    {
+      "entity_id": "NPC_ODDITIES_TRADER_001",
+      "name": "Local Oddities Trader",
+      "type": "NPC",
+      "description": "A trader in Byriver who provided Potions of Invisibility to the party.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "aligment": "Unknown"
+      }
+    },
+    {
+      "entity_id": "ITEM_POTION_INVISIBILITY_001",
+      "name": "Potion of Invisibility",
+      "type": "Item",
+      "description": "Potions acquired from the oddities trader, used by the party to sneak into Byriver castle.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "price": 0,
+        "creator": "NPC_ODDITIES_TRADER_001 (sold by)",
+        "rarity": "Uncommon",
+        "magical": true,
+        "magic_school": "Illusion",
+        "consumable": true
+      }
+    },
+    {
+      "entity_id": "LOCATION_BYRIVER_CASTLE_001",
+      "name": "Byriver Castle",
+      "type": "Location",
+      "description": "The castle in Byriver where the party fought Haldrix on the roof.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "region": "Byriver",
+        "location_type": "Castle"
+      }
+    },
+    {
+      "entity_id": "ITEM_HALDRIX_LOOT_GENERAL_001",
+      "name": "Haldrix's Loot",
+      "type": "Item",
+      "description": "Loot obtained from Haldrix, used by the party during downtime.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "price": 0,
+        "creator": "NPC_HALDRIX_001 (source)",
+        "rarity": "Various",
+        "magical": true,
+        "magic_school": "Various",
+        "consumable": false
+      }
+    },
+    {
+      "entity_id": "NPC_SILVA_001",
+      "name": "Silva",
+      "type": "NPC",
+      "description": "An individual who met the party at the lord's court in Byriver. Provided information about a rising draconic threat, dragon-growing stones, and The Black Skeledragon.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "aligment": "Unknown"
+      }
+    },
+    {
+      "entity_id": "LOCATION_DRAGON_KINGDOM_001",
+      "name": "The Dragon Kingdom",
+      "type": "Location",
+      "description": "A kingdom involved in a long-held border treaty with human races, which is now being broken.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "region": "Unknown",
+        "location_type": "Kingdom"
+      }
+    },
+    {
+      "entity_id": "OBJECT_DRAGON_STONES_001",
+      "name": "Dragon-growing stones",
+      "type": "Object",
+      "description": "Stones theorized to accelerate the growth rate of newborn dragons. The party is tasked to find their source and destroy them.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "location": "Unknown"
+      }
+    },
+    {
+      "entity_id": "NPC_BLACK_SKELEDRAGON_001",
+      "name": "The Black Skeledragon",
+      "type": "NPC",
+      "description": "A specific dragon threat the party is tasked to chase down. Described as half black, half skeleton dragon, with a yellow pulsing gem in its chest.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "aligment": "Evil (implied)"
+      }
+    },
+    {
+      "entity_id": "NPC_ZOMBIE_MAN_VILLAGER1_001",
+      "name": "Man from village (Zombie 1)",
+      "type": "NPC",
+      "description": "A man who asked for help to get his family 'out of their hell', then became aggressive, attacked the party, spread necrotic worms, and was found to be a zombie.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "aligment": "Evil (as zombie)"
+      }
+    },
+    {
+      "entity_id": "ITEM_NECROTIC_WORMS_001",
+      "name": "Necrotic Worms",
+      "type": "Item",
+      "description": "Magical worms, necrotic in nature, that spread from zombies and cause the Necrotic Worm Plague.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "price": 0,
+        "creator": "Unknown (source of plague)",
+        "rarity": "Unique",
+        "magical": true,
+        "magic_school": "Necromancy",
+        "consumable": true
+      }
+    },
+    {
+      "entity_id": "NPC_ZOMBIE_MAN_VILLAGER2_001",
+      "name": "Second man from village (Zombie 2)",
+      "type": "NPC",
+      "description": "The companion of the first man from the village, also found to be a zombie and dispatched by the party.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "aligment": "Evil (as zombie)"
+      }
+    },
+    {
+      "entity_id": "LOCATION_FAERIE_WHISPER_001",
+      "name": "Faerie Whisper",
+      "type": "Location",
+      "description": "A village referred to as 'Hell' by one of its former inhabitants. The area is covered in black miasma and looks rotten. The party is sent here to investigate the Necrotic Worm Plague.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "region": "Unknown",
+        "location_type": "Village"
+      }
+    },
+    {
+      "entity_id": "LOCATION_BOLTAN_001",
+      "name": "Boltan",
+      "type": "Location",
+      "description": "A town at the edge of which the party's cart stopped. Five armed rotten-looking characters emerged here.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "region": "Near Faerie Whisper (implied)",
+        "location_type": "Town"
+      }
+    },
+    {
+      "entity_id": "NPC_ROTTEN_CHARACTERS_001",
+      "name": "Rotten-looking characters",
+      "type": "NPC",
+      "description": "Five armed characters, one with spear and armor, that emerged from the ground and miasma at the edge of Boltan.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "aligment": "Evil (implied)"
+      }
+    },
+    {
+      "entity_id": "ITEM_SPEAR_ROTTEN_001",
+      "name": "Spear (Rotten Character)",
+      "type": "Item",
+      "description": "A spear carried by one of the rotten-looking characters at Boltan.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "price": 0,
+        "creator": "Unknown",
+        "rarity": "Common",
+        "magical": false,
+        "magic_school": "None",
+        "consumable": false
+      }
+    },
+    {
+      "entity_id": "ITEM_ARMOR_ROTTEN_001",
+      "name": "Armor (Rotten Character)",
+      "type": "Item",
+      "description": "Armor worn by one of the rotten-looking characters at Boltan.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {
+        "price": 0,
+        "creator": "Unknown",
+        "rarity": "Common",
+        "magical": false,
+        "magic_school": "None",
+        "consumable": false
+      }
+    },
+    {
+      "entity_id": "QUEST_HALDRIX_SOLUTION_001",
+      "name": "Find a solution to Haldrix",
+      "type": "Quest",
+      "description": "Initial quest given by tLoB's officer to find a solution to Haldrix's threat on Byriver.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "QUEST_DEFEAT_DRAGONS_001",
+      "name": "Defeat overreaching dragons",
+      "type": "Quest",
+      "description": "Quest given by tLoB and Silva to defeat overreaching dragons.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "QUEST_CHASE_BLACK_SKELEDRAGON_001",
+      "name": "Chase down The Black Skeledragon",
+      "type": "Quest",
+      "description": "Specific quest to chase down The Black Skeledragon.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "QUEST_UNDERSTAND_DRAGON_STONES_001",
+      "name": "Understand source of dragon-growing stones",
+      "type": "Quest",
+      "description": "Quest to understand the source of the dragon-growing stones.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "QUEST_DESTROY_DRAGON_STONES_001",
+      "name": "Destroy dragon-growing stones",
+      "type": "Quest",
+      "description": "Quest to destroy the dragon-growing stones and stop their production.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "QUEST_INVESTIGATE_FAERIE_WHISPER_001",
+      "name": "Investigate Faerie Whisper",
+      "type": "Quest",
+      "description": "Quest given by tLoB and Silva to go to the village of Faerie Whisper (referred to as 'Hell') to investigate the Necrotic Worm Plague.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "SESSION_S01_001",
+      "name": "Session 1",
+      "type": "Session",
+      "description": "The adventure started with the heroes getting recruited to find a solution to Haldrix. The party headed south towards Ahallona temple.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "SESSION_S02_001",
+      "name": "Session 2",
+      "type": "Session",
+      "description": "The party arrived at a ruined shrine, found an amulet, set up an ambush for Haldrix, weakened him, and he fled to Byriver.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "SESSION_S03_001",
+      "name": "Session 3",
+      "type": "Session",
+      "description": "The party found steamy caverns with a giant lair, fought giants, weakened Haldrix more, then used gliders to reach Byriver. They helped performers and a trader, snuck into the castle, and defeated Haldrix, saving Byriver.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "SESSION_S04_001",
+      "name": "Session 4",
+      "type": "Session",
+      "description": "Party had downtime, were summoned by tLoB, met Silva, learned of a wider draconic threat and the Necrotic Worm Plague. They were sent to Faerie Whisper and ended the session at Boltan facing rotten characters.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_HALDRIX_THREAT_001",
+      "name": "Haldrix's Threat to Byriver",
+      "type": "GeneralEvent",
+      "description": "Haldrix was expected to arrive in 3 days to wreck havoc on Byriver.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "ENCOUNTEREVENT_PARTY_RECRUITED_001",
+      "name": "Party Recruited for Haldrix Quest",
+      "type": "EncounterEvent",
+      "description": "Vince, Stella, and Leonard were recruited by an officer of tLoB.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "ENCOUNTEREVENT_FIGHT_GIANT_S2_001",
+      "name": "Fight with Giant (Session 2)",
+      "type": "EncounterEvent",
+      "description": "The party had a short fight with a Giant in the mountains.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "ENCOUNTEREVENT_AMBUSH_HALDRIX_S2_001",
+      "name": "Ambush of Haldrix (Session 2)",
+      "type": "EncounterEvent",
+      "description": "The party set up an ambush for Haldrix at the ruined shrine and weakened him.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_DISMANTLE_GENERATOR_001",
+      "name": "Dismantling Steam Generator",
+      "type": "GeneralEvent",
+      "description": "The party dismantled a steam generator in the Giants' lair.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "ENCOUNTEREVENT_FIGHT_GIANTS_LAIR_S3_001",
+      "name": "Fight with Giants in Lair",
+      "type": "EncounterEvent",
+      "description": "The party fought and took out 5 Giants in their lair.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "ENCOUNTEREVENT_FIGHT_HALDRIX_ROOM_S3_001",
+      "name": "Fight with Haldrix in Lair Room",
+      "type": "EncounterEvent",
+      "description": "The party fought Haldrix in his room in the Giants' lair, weakening him further.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_HALDRIX_TERROR_001",
+      "name": "Haldrix Terrorizing Byriver",
+      "type": "GeneralEvent",
+      "description": "Haldrix was terrorizing Byriver upon the party's arrival.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_RESCUE_BALLISTA_CREW_001",
+      "name": "Rescuing Ballista Crew",
+      "type": "GeneralEvent",
+      "description": "One of the activities the party could undertake in Byriver during Haldrix's attack.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_HELP_PERFORMERS_001",
+      "name": "Helping Travelling Performers",
+      "type": "GeneralEvent",
+      "description": "The party decided to help travelling performers who had fireworks.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_LOCATE_TRADER_001",
+      "name": "Locating Oddities Trader",
+      "type": "GeneralEvent",
+      "description": "The party decided to locate a local oddities trader for potentially useful equipment.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "ENCOUNTEREVENT_FINAL_FIGHT_HALDRIX_S3_001",
+      "name": "Final Fight with Haldrix in Byriver",
+      "type": "EncounterEvent",
+      "description": "The party fought Haldrix on the roof of Byriver castle, with performers stunning him with fireworks. The party dismantled Haldrix.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_SAVING_BYRIVER_001",
+      "name": "Saving of Byriver",
+      "type": "GeneralEvent",
+      "description": "The party saved Byriver from Haldrix, earning them the title 'The Heroes of Byriver'.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_PARTY_DOWNTIME_S4_001",
+      "name": "Party Downtime (Session 4)",
+      "type": "GeneralEvent",
+      "description": "After saving Byriver, the party had downtime to gear up and use Haldrix's loot.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_TLOB_SUMMONS_S4_001",
+      "name": "Summoning by tLoB (Session 4)",
+      "type": "GeneralEvent",
+      "description": "At the end of the month, the party was summoned by tLoB.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_MAN_ASKS_HELP_001",
+      "name": "Man Asks for Help",
+      "type": "GeneralEvent",
+      "description": "A man interrupted the briefing with tLoB and Silva, asking for help to get his family 'out of their hell'.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "ENCOUNTEREVENT_ZOMBIE1_ATTACK_S4_001",
+      "name": "Attack by Zombie Man (Villager 1)",
+      "type": "EncounterEvent",
+      "description": "The man asking for help became aggressive and attacked the party, spreading necrotic worms.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "ENCOUNTEREVENT_ZOMBIE2_DISPATCH_S4_001",
+      "name": "Dispatching Second Zombie (Villager 2)",
+      "type": "EncounterEvent",
+      "description": "The party found the other man from the village was also a zombie and dispatched him.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_NECROTIC_WORM_PLAGUE_001",
+      "name": "Necrotic Worm Plague",
+      "type": "GeneralEvent",
+      "description": "A plague involving magical necrotic worms that turn people into zombies, discovered by the party.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_REPORT_PLAGUE_001",
+      "name": "Report of Plague to tLoB and Silva",
+      "type": "GeneralEvent",
+      "description": "The party reported the incidents of the zombie villagers and the plague to tLoB and Silva.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_MISSION_FAERIE_WHISPER_001",
+      "name": "Mission to Faerie Whisper Assigned",
+      "type": "GeneralEvent",
+      "description": "tLoB and Silva requested the party immediately go to the village of Faerie Whisper.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_DRACONIC_THREAT_RISE_001",
+      "name": "Rising Draconic Threat",
+      "type": "GeneralEvent",
+      "description": "Silva informed the party about a rising draconic threat, with Haldrix being a symptom, and a broken border treaty.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_THREE_DRAGON_ATTACKS_001",
+      "name": "Three Dragon Attacks Reported",
+      "type": "GeneralEvent",
+      "description": "Silva mentioned three dragon attacks: one in Byriver (Haldrix) and two in the south.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "GENERALEVENT_DRAGON_STORMS_001",
+      "name": "Dragon-Caused Storms",
+      "type": "GeneralEvent",
+      "description": "One of the dragons mentioned by Silva caused storms affecting a large area.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    },
+    {
+      "entity_id": "ENCOUNTEREVENT_AMBUSH_BOLTAN_S4_001",
+      "name": "Ambush at Boltan",
+      "type": "EncounterEvent",
+      "description": "At the edge of Boltan, five armed rotten-looking characters emerged from the ground and miasma, confronting the party.",
+      "timeline_appearance": ["LegendOfAlonanora"],
+      "attributes": {}
+    }
+  ],
+  "relationships": [
+    { "source": "PC_VINCE_001", "target": "PLAYER_NADAV_001", "type": "familiar_of" },
+    { "source": "PC_LEONARD_001", "target": "PLAYER_AVIV_001", "type": "familiar_of" },
+    { "source": "PC_STELLA_001", "target": "PLAYER_STELLASPLAYER_001", "type": "familiar_of" },
+    { "source": "PC_VINCE_001", "target": "PC_STELLA_001", "type": "familiar_with" },
+    { "source": "PC_VINCE_001", "target": "PC_LEONARD_001", "type": "familiar_with" },
+    { "source": "PC_STELLA_001", "target": "PC_LEONARD_001", "type": "familiar_with" },
+    { "source": "NPC_TLOB_OFFICER_001", "target": "FACTION_TLOB_001", "type": "member_of" },
+    { "source": "NPC_TLOB_OFFICER_001", "target": "QUEST_HALDRIX_SOLUTION_001", "type": "quest_give" },
+    { "source": "PC_VINCE_001", "target": "QUEST_HALDRIX_SOLUTION_001", "type": "learned" },
+    { "source": "PC_STELLA_001", "target": "QUEST_HALDRIX_SOLUTION_001", "type": "learned" },
+    { "source": "PC_LEONARD_001", "target": "QUEST_HALDRIX_SOLUTION_001", "type": "learned" },
+    { "source": "NPC_HALDRIX_001", "target": "LOCATION_BYRIVER_001", "type": "familiar_with" },
+    { "source": "GENERALEVENT_HALDRIX_THREAT_001", "target": "NPC_HALDRIX_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_HALDRIX_THREAT_001", "target": "LOCATION_BYRIVER_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_HALDRIX_THREAT_001", "target": "SESSION_S01_001", "type": "happened_at_session" },
+    { "source": "ENCOUNTEREVENT_PARTY_RECRUITED_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_PARTY_RECRUITED_001", "target": "PC_STELLA_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_PARTY_RECRUITED_001", "target": "PC_LEONARD_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_PARTY_RECRUITED_001", "target": "NPC_TLOB_OFFICER_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_PARTY_RECRUITED_001", "target": "SESSION_S01_001", "type": "happened_at_session" },
+    { "source": "PC_VINCE_001", "target": "LOCATION_AHALLONA_TEMPLE_001", "type": "arrive_at" },
+    { "source": "PC_STELLA_001", "target": "LOCATION_AHALLONA_TEMPLE_001", "type": "arrive_at" },
+    { "source": "PC_LEONARD_001", "target": "LOCATION_AHALLONA_TEMPLE_001", "type": "arrive_at" },
+    { "source": "ITEM_GOLD_POOLED_001", "target": "LOCATION_AHALLONA_TEMPLE_001", "type": "was_at" },
+    { "source": "PC_VINCE_001", "target": "LOCATION_MOUNTAINS_S2_001", "type": "was_at" },
+    { "source": "ENCOUNTEREVENT_FIGHT_GIANT_S2_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_FIGHT_GIANT_S2_001", "target": "NPC_GIANT_S2_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_FIGHT_GIANT_S2_001", "target": "LOCATION_MOUNTAINS_S2_001", "type": "happened" },
+    { "source": "ENCOUNTEREVENT_FIGHT_GIANT_S2_001", "target": "SESSION_S02_001", "type": "happened_at_session" },
+    { "source": "PC_LEONARD_001", "target": "ITEM_AMULET_FIRE_ABSORPTION_001", "type": "item_found" },
+    { "source": "ITEM_AMULET_FIRE_ABSORPTION_001", "target": "LOCATION_RUINED_SHRINE_001", "type": "was_at" },
+    { "source": "PC_VINCE_001", "target": "LOCATION_RUINED_SHRINE_001", "type": "arrive_at" },
+    { "source": "ENCOUNTEREVENT_AMBUSH_HALDRIX_S2_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_AMBUSH_HALDRIX_S2_001", "target": "NPC_HALDRIX_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_AMBUSH_HALDRIX_S2_001", "target": "LOCATION_RUINED_SHRINE_001", "type": "happened" },
+    { "source": "ENCOUNTEREVENT_AMBUSH_HALDRIX_S2_001", "target": "SESSION_S02_001", "type": "happened_at_session" },
+    { "source": "NPC_HALDRIX_001", "target": "LOCATION_RUINED_SHRINE_001", "type": "leave_from" },
+    { "source": "NPC_HALDRIX_001", "target": "LOCATION_BYRIVER_001", "type": "arrive_at" },
+    { "source": "PC_VINCE_001", "target": "LOCATION_STEAMY_CAVERNS_001", "type": "arrive_at" },
+    { "source": "LOCATION_GIANTS_LAIR_001", "target": "LOCATION_STEAMY_CAVERNS_001", "type": "was_at" },
+    { "source": "OBJECT_STEAM_GENERATOR_001", "target": "LOCATION_GIANTS_LAIR_001", "type": "was_at" },
+    { "source": "GENERALEVENT_DISMANTLE_GENERATOR_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_DISMANTLE_GENERATOR_001", "target": "OBJECT_STEAM_GENERATOR_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_DISMANTLE_GENERATOR_001", "target": "SESSION_S03_001", "type": "happened_at_session" },
+    { "source": "ENCOUNTEREVENT_FIGHT_GIANTS_LAIR_S3_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_FIGHT_GIANTS_LAIR_S3_001", "target": "NPC_GIANTS_LAIR_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_FIGHT_GIANTS_LAIR_S3_001", "target": "LOCATION_GIANTS_LAIR_001", "type": "happened" },
+    { "source": "ENCOUNTEREVENT_FIGHT_GIANTS_LAIR_S3_001", "target": "SESSION_S03_001", "type": "happened_at_session" },
+    { "source": "NPC_HALDRIX_001", "target": "LOCATION_GIANTS_LAIR_001", "type": "was_at" },
+    { "source": "ENCOUNTEREVENT_FIGHT_HALDRIX_ROOM_S3_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_FIGHT_HALDRIX_ROOM_S3_001", "target": "NPC_HALDRIX_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_FIGHT_HALDRIX_ROOM_S3_001", "target": "LOCATION_GIANTS_LAIR_001", "type": "happened" },
+    { "source": "ENCOUNTEREVENT_FIGHT_HALDRIX_ROOM_S3_001", "target": "SESSION_S03_001", "type": "happened_at_session" },
+    { "source": "NPC_HALDRIX_001", "target": "LOCATION_GIANTS_LAIR_001", "type": "leave_from" },
+    { "source": "NPC_HALDRIX_001", "target": "LOCATION_BYRIVER_001", "type": "arrive_at" },
+    { "source": "PC_VINCE_001", "target": "ITEM_GLIDERS_001", "type": "item_found" },
+    { "source": "ITEM_GLIDERS_001", "target": "LOCATION_GIANTS_LAIR_001", "type": "was_at" },
+    { "source": "PC_VINCE_001", "target": "LOCATION_BYRIVER_001", "type": "arrive_at" },
+    { "source": "GENERALEVENT_HALDRIX_TERROR_001", "target": "NPC_HALDRIX_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_HALDRIX_TERROR_001", "target": "LOCATION_BYRIVER_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_HALDRIX_TERROR_001", "target": "SESSION_S03_001", "type": "happened_at_session" },
+    { "source": "GENERALEVENT_RESCUE_BALLISTA_CREW_001", "target": "NPC_BALLISTA_CREW_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_RESCUE_BALLISTA_CREW_001", "target": "SESSION_S03_001", "type": "happened_at_session" },
+    { "source": "GENERALEVENT_HELP_PERFORMERS_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_HELP_PERFORMERS_001", "target": "NPC_PERFORMERS_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_HELP_PERFORMERS_001", "target": "SESSION_S03_001", "type": "happened_at_session" },
+    { "source": "GENERALEVENT_LOCATE_TRADER_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_LOCATE_TRADER_001", "target": "NPC_ODDITIES_TRADER_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_LOCATE_TRADER_001", "target": "SESSION_S03_001", "type": "happened_at_session" },
+    { "source": "NPC_ODDITIES_TRADER_001", "target": "ITEM_POTION_INVISIBILITY_001", "type": "item_given" },
+    { "source": "PC_VINCE_001", "target": "ITEM_POTION_INVISIBILITY_001", "type": "item_found" },
+    { "source": "PC_VINCE_001", "target": "LOCATION_BYRIVER_CASTLE_001", "type": "arrive_at" },
+    { "source": "ENCOUNTEREVENT_FINAL_FIGHT_HALDRIX_S3_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_FINAL_FIGHT_HALDRIX_S3_001", "target": "PC_STELLA_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_FINAL_FIGHT_HALDRIX_S3_001", "target": "NPC_HALDRIX_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_FINAL_FIGHT_HALDRIX_S3_001", "target": "NPC_PERFORMERS_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_FINAL_FIGHT_HALDRIX_S3_001", "target": "ITEM_FIREWORKS_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_FINAL_FIGHT_HALDRIX_S3_001", "target": "LOCATION_BYRIVER_CASTLE_001", "type": "happened" },
+    { "source": "ENCOUNTEREVENT_FINAL_FIGHT_HALDRIX_S3_001", "target": "SESSION_S03_001", "type": "happened_at_session" },
+    { "source": "GENERALEVENT_SAVING_BYRIVER_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_SAVING_BYRIVER_001", "target": "LOCATION_BYRIVER_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_SAVING_BYRIVER_001", "target": "QUEST_HALDRIX_SOLUTION_001", "type": "quest_complete" },
+    { "source": "GENERALEVENT_SAVING_BYRIVER_001", "target": "SESSION_S03_001", "type": "happened_at_session" },
+    { "source": "GENERALEVENT_PARTY_DOWNTIME_S4_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_PARTY_DOWNTIME_S4_001", "target": "ITEM_HALDRIX_LOOT_GENERAL_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_PARTY_DOWNTIME_S4_001", "target": "SESSION_S04_001", "type": "happened_at_session" },
+    { "source": "GENERALEVENT_TLOB_SUMMONS_S4_001", "target": "FACTION_TLOB_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_TLOB_SUMMONS_S4_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_TLOB_SUMMONS_S4_001", "target": "NPC_SILVA_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_TLOB_SUMMONS_S4_001", "target": "SESSION_S04_001", "type": "happened_at_session" },
+    { "source": "NPC_SILVA_001", "target": "GENERALEVENT_DRACONIC_THREAT_RISE_001", "type": "learned" },
+    { "source": "NPC_SILVA_001", "target": "OBJECT_DRAGON_STONES_001", "type": "learned" },
+    { "source": "NPC_SILVA_001", "target": "NPC_BLACK_SKELEDRAGON_001", "type": "learned" },
+    { "source": "NPC_SILVA_001", "target": "GENERALEVENT_THREE_DRAGON_ATTACKS_001", "type": "learned" },
+    { "source": "NPC_SILVA_001", "target": "GENERALEVENT_DRAGON_STORMS_001", "type": "learned" },
+    { "source": "FACTION_TLOB_001", "target": "QUEST_DEFEAT_DRAGONS_001", "type": "quest_give" },
+    { "source": "FACTION_TLOB_001", "target": "QUEST_CHASE_BLACK_SKELEDRAGON_001", "type": "quest_give" },
+    { "source": "FACTION_TLOB_001", "target": "QUEST_UNDERSTAND_DRAGON_STONES_001", "type": "quest_give" },
+    { "source": "FACTION_TLOB_001", "target": "QUEST_DESTROY_DRAGON_STONES_001", "type": "quest_give" },
+    { "source": "PC_VINCE_001", "target": "QUEST_DEFEAT_DRAGONS_001", "type": "learned" },
+    { "source": "PC_VINCE_001", "target": "QUEST_CHASE_BLACK_SKELEDRAGON_001", "type": "learned" },
+    { "source": "PC_VINCE_001", "target": "QUEST_UNDERSTAND_DRAGON_STONES_001", "type": "learned" },
+    { "source": "PC_VINCE_001", "target": "QUEST_DESTROY_DRAGON_STONES_001", "type": "learned" },
+    { "source": "GENERALEVENT_MAN_ASKS_HELP_001", "target": "NPC_ZOMBIE_MAN_VILLAGER1_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_MAN_ASKS_HELP_001", "target": "SESSION_S04_001", "type": "happened_at_session" },
+    { "source": "ENCOUNTEREVENT_ZOMBIE1_ATTACK_S4_001", "target": "NPC_ZOMBIE_MAN_VILLAGER1_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_ZOMBIE1_ATTACK_S4_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "NPC_ZOMBIE_MAN_VILLAGER1_001", "target": "ITEM_NECROTIC_WORMS_001", "type": "item_given" },
+    { "source": "PC_LEONARD_001", "target": "ITEM_NECROTIC_WORMS_001", "type": "item_found" },
+    { "source": "PC_STELLA_001", "target": "ITEM_NECROTIC_WORMS_001", "type": "object_interacted" },
+    { "source": "PC_VINCE_001", "target": "ITEM_NECROTIC_WORMS_001", "type": "learned" },
+    { "source": "ENCOUNTEREVENT_ZOMBIE1_ATTACK_S4_001", "target": "SESSION_S04_001", "type": "happened_at_session" },
+    { "source": "ENCOUNTEREVENT_ZOMBIE2_DISPATCH_S4_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_ZOMBIE2_DISPATCH_S4_001", "target": "NPC_ZOMBIE_MAN_VILLAGER2_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_ZOMBIE2_DISPATCH_S4_001", "target": "SESSION_S04_001", "type": "happened_at_session" },
+    { "source": "GENERALEVENT_NECROTIC_WORM_PLAGUE_001", "target": "ITEM_NECROTIC_WORMS_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_NECROTIC_WORM_PLAGUE_001", "target": "LOCATION_FAERIE_WHISPER_001", "type": "happened" },
+    { "source": "GENERALEVENT_REPORT_PLAGUE_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_REPORT_PLAGUE_001", "target": "FACTION_TLOB_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_REPORT_PLAGUE_001", "target": "NPC_SILVA_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_REPORT_PLAGUE_001", "target": "SESSION_S04_001", "type": "happened_at_session" },
+    { "source": "FACTION_TLOB_001", "target": "QUEST_INVESTIGATE_FAERIE_WHISPER_001", "type": "quest_give" },
+    { "source": "NPC_SILVA_001", "target": "QUEST_INVESTIGATE_FAERIE_WHISPER_001", "type": "quest_give" },
+    { "source": "PC_VINCE_001", "target": "QUEST_INVESTIGATE_FAERIE_WHISPER_001", "type": "learned" },
+    { "source": "GENERALEVENT_MISSION_FAERIE_WHISPER_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_MISSION_FAERIE_WHISPER_001", "target": "LOCATION_FAERIE_WHISPER_001", "type": "event_happened" },
+    { "source": "GENERALEVENT_MISSION_FAERIE_WHISPER_001", "target": "SESSION_S04_001", "type": "happened_at_session" },
+    { "source": "PC_VINCE_001", "target": "LOCATION_BOLTAN_001", "type": "arrive_at" },
+    { "source": "ENCOUNTEREVENT_AMBUSH_BOLTAN_S4_001", "target": "PC_VINCE_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_AMBUSH_BOLTAN_S4_001", "target": "NPC_ROTTEN_CHARACTERS_001", "type": "event_happened" },
+    { "source": "ENCOUNTEREVENT_AMBUSH_BOLTAN_S4_001", "target": "LOCATION_BOLTAN_001", "type": "happened" },
+    { "source": "ENCOUNTEREVENT_AMBUSH_BOLTAN_S4_001", "target": "SESSION_S04_001", "type": "happened_at_session" },
+    { "source": "NPC_ROTTEN_CHARACTERS_001", "target": "ITEM_SPEAR_ROTTEN_001", "type": "item_found" },
+    { "source": "NPC_ROTTEN_CHARACTERS_001", "target": "ITEM_ARMOR_ROTTEN_001", "type": "item_found" }
+  ]
+}

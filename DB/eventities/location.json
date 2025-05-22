@@ -1,0 +1,5 @@
+{
+    "type" : "location",
+    "region" : "string",
+    "location_type" : "string"
+}

@@ -1,0 +1,6 @@
+{
+    "type" : "player_character",
+    "player" : "player",
+    "charater_class" : "string",
+    "aligment" : "string"
+}

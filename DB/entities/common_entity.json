@@ -4,6 +4,5 @@
   "type": "entity_type",
   "description": "string",
   "timeline_appearance": "list(string)",
-  "session_appearance": "list(Session)",
   "relations": "list(dict)"
 }

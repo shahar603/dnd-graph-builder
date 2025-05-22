@@ -7,16 +7,16 @@
         "was_at",
         "leave_from",
         "arrive_at",
-        "guest_give",
-        "guest_complete",
+        "quest_give",
+        "quest_complete",
         "item_found",
         "item_lost",
         "item_given",
-        "item_bougth",
-        "object_interated",
-        "event_happend",
-        "happend",
+        "item_bought",
+        "object_interacted",
+        "event_happened",
+        "happened",
         "learned",
-        "happend_at_session"
+        "happened_at_session"
     ]
 }

@@ -1,4 +1,4 @@
 {
-    "type" : "npc",
+    "type" : "NPC",
     "aligment" : "string"
 }

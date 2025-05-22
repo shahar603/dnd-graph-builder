@@ -1,5 +1,5 @@
 {
-    "type" : "location",
+    "type" : "Location",
     "region" : "string",
     "location_type" : "string"
 }

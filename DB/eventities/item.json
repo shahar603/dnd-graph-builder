@@ -1,5 +1,5 @@
 {
-    "type" : "item",
+    "type" : "Item",
     "price" : "int",
     "creator" : "npc|player_character|deity",
     "rarity" : "string",

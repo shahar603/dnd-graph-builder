@@ -1,4 +1,4 @@
 {
-    "type": "faction",
+    "type": "Factions",
     "alignment": "string"
 }

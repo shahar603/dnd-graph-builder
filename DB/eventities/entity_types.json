@@ -1,5 +1,7 @@
 {
     "types": [
+        "Common",
+        "Player",
         "PC",
         "NPC",
         "Deity",

@@ -1,0 +1,9 @@
+{
+    "type" : "item",
+    "price" : "int",
+    "creator" : "npc|player_character|deity",
+    "rarity" : "string",
+    "magical" : "boolean",
+    "magic_school" : "string",
+    "consumable" : "boolean"
+}

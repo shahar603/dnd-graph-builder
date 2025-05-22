@@ -1,9 +1,9 @@
 {
-  "EntityID": "",
-  "Name": "",
-  "Type": "",
-  "Description": "",
-  "TimelineAppearance": [],
-  "SessionAppearance": [],
-  "Relations": []
+  "EntityID": "string",
+  "Name": "string",
+  "Type": "entity_type",
+  "Description": "string",
+  "TimelineAppearance": "list(string)",
+  "SessionAppearance": "list(Session)",
+  "Relations": "list(dict)"
 }

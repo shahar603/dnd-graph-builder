@@ -1,0 +1,18 @@
+{
+    "types": [
+        "Common",
+        "Player",
+        "PC",
+        "NPC",
+        "Deity",
+        "Location",
+        "Item",
+        "Object",
+        "Quest",
+        "Faction",
+        "GeneralEvent",
+        "HistoricalEvent",
+        "EncounterEvent",
+        "Session"
+    ]
+}

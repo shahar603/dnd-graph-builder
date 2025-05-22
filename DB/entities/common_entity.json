@@ -1,0 +1,8 @@
+{
+  "entity_id": "string",
+  "name": "string",
+  "type": "entity_type",
+  "description": "string",
+  "timeline_appearance": "list(string)",
+  "relations": "list(dict)"
+}

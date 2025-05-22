@@ -1,0 +1,22 @@
+{
+    "types" : [
+        "familiar_of",
+        "familiar_with",
+        "worship",
+        "member_of",
+        "was_at",
+        "leave_from",
+        "arrive_at",
+        "quest_give",
+        "quest_complete",
+        "item_found",
+        "item_lost",
+        "item_given",
+        "item_bought",
+        "object_interacted",
+        "event_happened",
+        "happened",
+        "learned",
+        "happened_at_session"
+    ]
+}

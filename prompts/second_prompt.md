@@ -82,9 +82,6 @@ These will then be used to generate the relation network graph (entities as node
 Information about the "Legends of Allonanora" Player Group (For Context):
 (As previously defined)
 
-Confirmation Request:
-Please confirm your understanding of these significantly updated instructions, especially the separation of entities and relationships into two distinct lists, the new structure for relationship objects, and the points I've asked for clarification on (the meaning of type in a relationship object and the status of relationship-specific attributes). Once you confirm, I will be ready for the prologue for "Legends of Allonanora."
-
 Example Dataset (Illustrative - based on new structure):
 
 1. Example Entity List:

@@ -1,0 +1,75 @@
+-- Ensure Foreign Key support is enabled (run this command before executing the schema if not already on)
+-- PRAGMA foreign_keys = ON;
+
+-- Player Table Inserts
+INSERT INTO Player (player_id, player_name, access_level) VALUES (1, 'Nadav', 'ALL');
+INSERT INTO Player (player_id, player_name, access_level) VALUES (2, 'Aviv', 'ALL');
+INSERT INTO Player (player_id, player_name, access_level) VALUES (3, 'Tomer', 'ALL');
+INSERT INTO Player (player_id, player_name, access_level) VALUES (4, 'Ilan', 'ALL');
+INSERT INTO Player (player_id, player_name, access_level) VALUES (5, 'Nicole', 'ALL');
+
+-- Character Table Inserts
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (1, 'King Dirion', 'Rules the city of Briver; his rule is described as barely noticeable. He is seeking adventurers to deal with the dragon Heldrax and is unwilling to make deals with dragons.', 'NPC', 'UNKNOWN', 'ALL'); --
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (2, 'Heldrax', 'A red-scaled dragon with scales harder than metal, breathes fire. Attacked Briver''s southern district and demanded treasure. Came from and returned to the mountain region near Briver.', 'MONSTER', 'BAD', 'ALL'); --
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (3, 'Vince', 'Wizard (Played by Nadav)', 'PC', 'UNKNOWN', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (4, 'Leonard', 'Artificer (Played by Aviv)', 'PC', 'UNKNOWN', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (5, 'Granite Stonebreaker', 'Barbarian (Played by Tomer)', 'PC', 'UNKNOWN', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (6, 'Eleca', 'Warlock (Played by Ilan)', 'PC', 'UNKNOWN', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (7, 'Stella', 'Druid (Formerly played by Nicole)', 'HISTORICAL_PC', 'UNKNOWN', 'ALL');
+
+-- Player_Characters Table Inserts
+INSERT INTO Player_Characters (character_id, player_id, access_level) VALUES (3, 1, 'ALL'); -- Vince (Char ID 3) played by Nadav (Player ID 1)
+INSERT INTO Player_Characters (character_id, player_id, access_level) VALUES (4, 2, 'ALL'); -- Leonard (Char ID 4) played by Aviv (Player ID 2)
+INSERT INTO Player_Characters (character_id, player_id, access_level) VALUES (5, 3, 'ALL'); -- Granite Stonebreaker (Char ID 5) played by Tomer (Player ID 3)
+INSERT INTO Player_Characters (character_id, player_id, access_level) VALUES (6, 4, 'ALL'); -- Eleca (Char ID 6) played by Ilan (Player ID 4)
+INSERT INTO Player_Characters (character_id, player_id, access_level) VALUES (7, 5, 'ALL'); -- Stella (Char ID 7) played by Nicole (Player ID 5)
+
+-- Location Table Inserts
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (1, 'Briver', 'City ruled by King Dirion where daily life was pleasant. Its southern district was attacked by Heldrax. Contains a castle.', 'Kings Stand', 'Temperate', 1); -- Ruled by King Dirion (Char ID 1)
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (2, 'Mountain Region near Briver', 'Area Heldrax originated from and returned to. The Temple Ruins are at its foot.', 'Kings Stand / Northern foothills', 'Mountainous', NULL); --
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (3, 'Temple Ruins', 'Located at the foot of the mountains near Briver; where Heldrax demanded treasure.', 'Mountain Region near Briver', 'Mountainous', NULL); --
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (4, 'Briver Castle', 'Located in Briver; Heldrax perched on its roof.', 'Briver', 'Temperate', 1); -- Ruled by King Dirion (Char ID 1)
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (5, 'The Ice plains', 'Large northern icy region.', 'Northern Allonanora', 'Arctic', NULL); --
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (6, 'Kings Stand', 'Region south of The Ice plains, containing Briver. Appears as grasslands/light forests.', 'Central-North Allonanora', 'Temperate', NULL); --
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (7, 'Alapara Forest', 'Large forest east of Kings Stand.', 'East Kings Stand / West Randila Kingdom', 'Temperate Forest', NULL); --
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (8, 'Grodor mountain range', 'Mountains in the northeast.', 'Northeast Allonanora', 'Mountainous', NULL); --
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (9, 'Northern plains', 'Plains east of the Grodor mountain range.', 'Northeast Allonanora', 'Temperate/Cold plains', NULL); --
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (10, 'Randila Kingdom', 'Kingdom in the east, includes Randila city.', 'East Allonanora', 'Temperate', NULL); --
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (11, 'Randila city', 'A city within the Randila Kingdom.', 'Randila Kingdom', 'Temperate', NULL); --
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (12, 'Whispering swamp', 'Large swamp in central Allonanora, west of Kings Stand.', 'Central Allonanora', 'Swamp', NULL); --
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (13, 'Dragons den', 'An area on the western peninsula.', 'West Allonanora', 'Temperate/Coastal', NULL); --
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (14, 'Pelinor land of the sun', 'A region in the southeast. Appears fertile.', 'Southeast Allonanora', 'Temperate/Warm', NULL); --
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (15, 'Pallas city of the sun', 'A city within Pelinor land of the sun.', 'Pelinor land of the sun', 'Temperate/Warm', NULL); --
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (16, 'Tolorodo Desert', 'A large desert in the south/southeast.', 'South Allonanora', 'Arid', NULL); --
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (17, 'XOR the land of demons', 'A region in the southwest, possibly volcanic or corrupted.', 'Southwest Allonanora', 'Volcanic/Wasteland', NULL); --
+
+-- Item Table Inserts
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (1, 'Gold (Heldrax''s Demand)', 'All gold demanded by Heldrax from Briver.', NULL, 'COMMON', 0, NULL); --
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (2, 'Diamonds (Heldrax''s Demand)', 'All diamonds demanded by Heldrax from Briver.', NULL, 'UNCOMMON', 0, NULL); --
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (3, 'Treasures (Heldrax''s Demand)', 'All other treasures demanded by Heldrax from Briver.', NULL, 'RARE', 0, NULL); -- Assuming some rarity for "treasures"
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (4, 'King Dirion''s Announcement for Help', 'A public notice from King Dirion seeking aid against Heldrax.', 0, 'COMMON', 0, 1); -- Creator King Dirion (Char ID 1)
+
+-- Event Table Inserts
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (1, 'Heldrax attacked Briver''s southern district with fire and issued demands from the castle roof.', 'ENCOUNTER', 'Recent Past'); --
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (2, 'King Dirion posts an announcement seeking help to deal with Heldrax.', 'GENERAL', 'Present'); --
+
+-- Event_Participants Table Inserts
+INSERT INTO Event_Participants (character_id, event_id) VALUES (2, 1); -- Heldrax (Char ID 2) participated in Heldrax's Attack (Event ID 1)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (1, 2); -- King Dirion (Char ID 1) participated in King Dirion's Call (Event ID 2) (as initiator)
+
+-- Session Table Inserts (Placeholder for Prologue)
+INSERT INTO Session (session_id, session_description) VALUES (1, 'Prologue - Heldrax''s Arrival and Demands');
+
+-- GenericRelation Table Inserts
+-- For relation_appearance, using Session ID 1 (Prologue Session) for events from the prologue.
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (1, 'CHARACTER', 1, 'LOCATION', 1, 'Rules/is the King of Briver.', 1); -- King Dirion (Char ID 1) rules Briver (Loc ID 1)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (2, 'CHARACTER', 2, 'EVENT', 1, 'Initiator of the attack on Briver.', 1); -- Heldrax (Char ID 2) initiated Attack (Event ID 1)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (3, 'LOCATION', 1, 'EVENT', 1, 'Target location of Heldrax''s attack.', 1); -- Briver (Loc ID 1) was target of Attack (Event ID 1)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (4, 'CHARACTER', 2, 'LOCATION', 3, 'Demanded tribute to be left at the Temple Ruins.', 1); -- Heldrax (Char ID 2) demanded tribute at Temple Ruins (Loc ID 3)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (5, 'CHARACTER', 2, 'LOCATION', 2, 'Originated from and returned to this region after attacking Briver.', 1); -- Heldrax (Char ID 2) from Mountain Region (Loc ID 2)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (6, 'CHARACTER', 1, 'EVENT', 2, 'Initiated the call for adventurers.', 1); -- King Dirion (Char ID 1) initiated Call for Adventurers (Event ID 2)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (7, 'CHARACTER', 1, 'CHARACTER', 2, 'Opposes Heldrax and seeks help against him.', 1); -- King Dirion (Char ID 1) opposes Heldrax (Char ID 2)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (8, 'ITEM', 4, 'CHARACTER', 1, 'Authored/Issued by King Dirion.', 1); -- Announcement (Item ID 4) by King Dirion (Char ID 1)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (9, 'ITEM', 4, 'EVENT', 2, 'Is the physical manifestation of the call for adventurers.', 1); -- Announcement (Item ID 4) is part of Call for Adventurers (Event ID 2)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (10, 'LOCATION', 4, 'LOCATION', 1, 'Is located within Briver.', NULL); -- Briver Castle (Loc ID 4) in Briver (Loc ID 1) (Ongoing, not tied to a specific session appearance from prologue)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (11, 'CHARACTER', 2, 'LOCATION', 4, 'Perched on its roof to deliver demands.', 1); -- Heldrax (Char ID 2) on Briver Castle (Loc ID 4)

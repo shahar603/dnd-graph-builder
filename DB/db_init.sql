@@ -1,5 +1,5 @@
 -- Ensure Foreign Key support is enabled (run this command before executing the schema)
--- PRAGMA foreign_keys = ON;
+PRAGMA foreign_keys = ON;
 
 CREATE TABLE Character (
   character_id INTEGER PRIMARY KEY AUTOINCREMENT,

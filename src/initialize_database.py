@@ -2,140 +2,80 @@ import sqlite3
 import os
 
 DATABASE = 'DB\database.db'
+SQL_INIT_FILE = "DB\db_init.sql"
 
-def init_db():
+def initialize_database_from_file(sql_file_path, db_name="dnd_from_file.db"):
     """
-    Initializes the database by creating all tables defined in the schema.
-    It also enables foreign key support.
+    Creates and initializes a new SQLite database using a schema from a .sql file.
+
+    Args:
+        sql_file_path (str): The path to the .sql file containing the schema.
+        db_name (str): The name of the database file to create.
+                       Defaults to "dnd_from_file.db".
     """
-    conn = None # Initialize conn to None
+    # Check if the SQL file exists
+    if not os.path.exists(sql_file_path):
+        print(f"Error: SQL file '{sql_file_path}' not found.")
+        return
+
+    # Check if the database file already exists and ask before overwriting
+    if os.path.exists(db_name):
+        overwrite = input(f"Database '{db_name}' already exists. Overwrite? (y/n): ").lower()
+        if overwrite != 'y':
+            print("Database initialization cancelled.")
+            return
+        else:
+            os.remove(db_name)
+            print(f"Removed existing database '{db_name}'.")
+
+    conn = None  # Initialize conn to None
     try:
-        # Check if database file already exists
-        db_exists = os.path.exists(DATABASE)
+        # Read the SQL schema from the file
+        with open(sql_file_path, 'r') as f:
+            sql_schema = f.read()
+        print(f"Read schema from '{sql_file_path}'.")
 
-        conn = sqlite3.connect(DATABASE)
+        # Connect to the database (this will create the file)
+        conn = sqlite3.connect(db_name)
         cursor = conn.cursor()
 
-        # Enable foreign key support
-        cursor.execute('PRAGMA foreign_keys = ON;')
+        print(f"Creating schema in '{db_name}'...")
 
-        # Create Character table
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS Character (
-                character_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                character_name TEXT,
-                character_description TEXT,
-                character_type TEXT CHECK (character_type IN ('DEITY', 'MONSTER', 'NPC', 'PC', 'HISTORICAL_PC')),
-                alignment TEXT CHECK (alignment IN ('GOOD', 'BAD', 'LAWFUL', 'CHAOTIC', 'GOOD_LAWFUL', 'BAD_LAWFUL', 'GOOD_CHAOTIC', 'BAD_CHAOTIC', 'NEUTRAL', 'UNKNOWN')),
-                access_level TEXT DEFAULT 'ALL' CHECK (access_level IN ('ALL', 'DM'))
-            )
-        ''')
+        # Execute the multi-statement SQL script
+        # The first line of your SQL file is "PRAGMA foreign_keys = ON;"
+        # We should execute this separately or ensure it's handled correctly.
+        # executescript handles multiple statements including PRAGMA.
+        cursor.executescript(sql_schema)
 
-        # Create Player table
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS Player (
-                player_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                player_name TEXT,
-                access_level TEXT DEFAULT 'ALL' CHECK (access_level IN ('ALL', 'DM'))
-            )
-        ''')
-
-        # Create Player_Characters table
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS Player_Characters (
-                character_id INTEGER UNIQUE,
-                player_id INTEGER,
-                access_level TEXT DEFAULT 'ALL' CHECK (access_level IN ('ALL', 'DM')),
-                PRIMARY KEY (character_id, player_id),
-                FOREIGN KEY (character_id) REFERENCES Character (character_id),
-                FOREIGN KEY (player_id) REFERENCES Player (player_id)
-            )
-        ''')
-
-        # Create Item table
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS Item (
-                item_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                item_name TEXT,
-                item_description TEXT,
-                value_in_gold INTEGER,
-                rarity TEXT CHECK (rarity IN ('COMMON', 'UNCOMMON', 'RARE', 'VERY_RARE', 'LEGENDARY')),
-                is_magical INTEGER, -- Using INTEGER for boolean (0 for false, 1 for true)
-                creator_id INTEGER,
-                FOREIGN KEY (creator_id) REFERENCES Character (character_id)
-            )
-        ''')
-
-        # Create Location table
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS Location (
-                location_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                location_name TEXT,
-                location_description TEXT,
-                region TEXT,
-                climate TEXT,
-                ruler INTEGER,
-                FOREIGN KEY (ruler) REFERENCES Character (character_id)
-            )
-        ''')
-
-        # Create Event table
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS Event (
-                event_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                event_description TEXT,
-                event_type TEXT CHECK (event_type IN ('GENERAL', 'HISTORICAL', 'ENCOUNTER')),
-                era TEXT
-            )
-        ''')
-
-        # Create Event_Participants table
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS Event_Participants (
-                character_id INTEGER,
-                event_id INTEGER,
-                PRIMARY KEY (character_id, event_id),
-                FOREIGN KEY (character_id) REFERENCES Character (character_id),
-                FOREIGN KEY (event_id) REFERENCES Event (event_id)
-            )
-        ''')
-
-        # Create Session table
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS Session (
-                session_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                session_description TEXT
-            )
-        ''')
-
-        # Create GenericRelation table
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS GenericRelation (
-                relation_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                Table1Name TEXT NOT NULL CHECK (Table1Name IN ('CHARACTER', 'ITEM', 'LOCATION', 'EVENT')),
-                Table1ID INTEGER NOT NULL,
-                Table2Name TEXT NOT NULL CHECK (Table2Name IN ('CHARACTER', 'ITEM', 'LOCATION', 'EVENT')),
-                Table2ID INTEGER NOT NULL,
-                relation_description TEXT,
-                relation_appearance INTEGER,
-                FOREIGN KEY (relation_appearance) REFERENCES Session (session_id)
-            )
-        ''')
-
+        # Commit the changes
         conn.commit()
 
-        if db_exists:
-            print(f"Database '{DATABASE}' already exists. Ensured all tables are present.")
-        else:
-            print(f"Database '{DATABASE}' created and tables initialized successfully!")
+        print(f"Database '{db_name}' created and initialized successfully using '{sql_file_path}'.")
 
     except sqlite3.Error as e:
         print(f"An SQLite error occurred: {e}")
+        # If an error occurs during creation, try to remove the partial file
+        if os.path.exists(db_name):
+            if conn: # Ensure connection is closed before trying to remove
+                conn.close()
+                conn = None # Set to None after closing
+            try:
+                os.remove(db_name)
+                print(f"Removed potentially corrupted database file '{db_name}'.")
+            except Exception as remove_e:
+                 print(f"Could not remove database file '{db_name}': {remove_e}")
+    except IOError as e:
+        print(f"An I/O error occurred while reading '{sql_file_path}': {e}")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
     finally:
+        # Ensure the connection is closed
         if conn:
             conn.close()
+            print("Database connection closed.")
 
-if __name__ == '__main__':
-    init_db()
+
+# --- Main execution block ---
+if __name__ == "__main__":
+
+    initialize_database_from_file(SQL_INIT_FILE, DATABASE)

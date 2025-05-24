@@ -1,7 +1,7 @@
 -- Ensure Foreign Key support is enabled (run this command before executing the schema)
 PRAGMA foreign_keys = ON;
 
-CREATE TABLE Character (
+CREATE TABLE IF NOT EXISTS Character (
   character_id INTEGER PRIMARY KEY AUTOINCREMENT,
   character_name TEXT,
   character_description TEXT,
@@ -10,13 +10,13 @@ CREATE TABLE Character (
   access_level TEXT DEFAULT 'ALL' CHECK (access_level IN ('ALL', 'DM'))
 );
 
-CREATE TABLE Player (
+CREATE TABLE IF NOT EXISTS Player (
   player_id INTEGER PRIMARY KEY AUTOINCREMENT,
   player_name TEXT,
   access_level TEXT DEFAULT 'ALL' CHECK (access_level IN ('ALL', 'DM'))
 );
 
-CREATE TABLE Player_Characters (
+CREATE TABLE IF NOT EXISTS Player_Characters (
   character_id INTEGER UNIQUE,
   player_id INTEGER,
   access_level TEXT DEFAULT 'ALL' CHECK (access_level IN ('ALL', 'DM')),
@@ -25,7 +25,7 @@ CREATE TABLE Player_Characters (
   FOREIGN KEY (player_id) REFERENCES Player (player_id)
 );
 
-CREATE TABLE Item (
+CREATE TABLE IF NOT EXISTS Item (
   item_id INTEGER PRIMARY KEY AUTOINCREMENT,
   item_name TEXT,
   item_description TEXT,
@@ -36,7 +36,7 @@ CREATE TABLE Item (
   FOREIGN KEY (creator_id) REFERENCES Character (character_id)
 );
 
-CREATE TABLE Location (
+CREATE TABLE IF NOT EXISTS Location (
   location_id INTEGER PRIMARY KEY AUTOINCREMENT,
   location_name TEXT,
   location_description TEXT,
@@ -46,14 +46,14 @@ CREATE TABLE Location (
   FOREIGN KEY (ruler) REFERENCES Character (character_id)
 );
 
-CREATE TABLE Event (
+CREATE TABLE IF NOT EXISTS Event (
   event_id INTEGER PRIMARY KEY AUTOINCREMENT,
   event_description TEXT,
   event_type TEXT CHECK (event_type IN ('GENERAL', 'HISTORICAL', 'ENCOUNTER')),
   era TEXT
 );
 
-CREATE TABLE Event_Participants (
+CREATE TABLE IF NOT EXISTS Event_Participants (
   character_id INTEGER,
   event_id INTEGER,
   PRIMARY KEY (character_id, event_id),
@@ -61,12 +61,12 @@ CREATE TABLE Event_Participants (
   FOREIGN KEY (event_id) REFERENCES Event (event_id)
 );
 
-CREATE TABLE Session (
+CREATE TABLE IF NOT EXISTS Session (
   session_id INTEGER PRIMARY KEY AUTOINCREMENT,
   session_description TEXT
 );
 
-CREATE TABLE GenericRelation (
+CREATE TABLE IF NOT EXISTS GenericRelation (
   relation_id INTEGER PRIMARY KEY AUTOINCREMENT,
   Table1Name TEXT NOT NULL CHECK (Table1Name IN ('CHARACTER', 'ITEM', 'LOCATION', 'EVENT')),
   Table1ID INTEGER NOT NULL,

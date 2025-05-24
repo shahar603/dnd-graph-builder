@@ -17,7 +17,9 @@ CREATE TABLE `Player_Characters` (
   `character_id` long UNIQUE,
   `player_id` long,
   `access_level` ENUM ('ALL', 'DM') DEFAULT 'ALL',
-  PRIMARY KEY (`character_id`, `player_id`)
+  PRIMARY KEY (`character_id`, `player_id`),
+  FOREIGN KEY (`character_id`) REFERENCES `Character` (`character_id`),
+  FOREIGN KEY (`player_id`) REFERENCES `Player` (`player_id`)
 );
 
 CREATE TABLE `Item` (
@@ -27,7 +29,8 @@ CREATE TABLE `Item` (
   `value_in_gold` INTEGER,
   `rarity` ENUM ('COMMON', 'UNCOMMON', 'RARE', 'VERY_RARE', 'LEGENDARY'),
   `is_magical` bool,
-  `creator_id` long
+  `creator_id` long,
+  FOREIGN KEY (`creator_id`) REFERENCES `Character` (`character_id`)
 );
 
 CREATE TABLE `Location` (
@@ -36,7 +39,8 @@ CREATE TABLE `Location` (
   `location_description` varchar(255),
   `region` varchar(255),
   `climate` varchar(255),
-  `ruler` character_id
+  `ruler` long, -- Changed from 'character_id' to 'long' for clarity
+  FOREIGN KEY (`ruler`) REFERENCES `Character` (`character_id`)
 );
 
 CREATE TABLE `Event` (
@@ -49,7 +53,9 @@ CREATE TABLE `Event` (
 CREATE TABLE `Event_Participants` (
   `character_id` long,
   `event_id` long,
-  PRIMARY KEY (`character_id`, `event_id`)
+  PRIMARY KEY (`character_id`, `event_id`),
+  FOREIGN KEY (`character_id`) REFERENCES `Character` (`character_id`),
+  FOREIGN KEY (`event_id`) REFERENCES `Event` (`event_id`)
 );
 
 CREATE TABLE `Session` (
@@ -63,20 +69,7 @@ CREATE TABLE `GenericRelation` (
   `Table1ID` long NOT NULL,
   `Table2Name` ENUM ('CHARACTER', 'ITEM', 'LOCATION', 'EVENT') NOT NULL,
   `Table2ID` long NOT NULL,
-  `relation_description` VARCHAR,
-  `relation_appearance` long
+  `relation_description` VARCHAR(255), -- Added length to VARCHAR
+  `relation_appearance` long,
+  FOREIGN KEY (`relation_appearance`) REFERENCES `Session` (`session_id`)
 );
-
-ALTER TABLE `Player_Characters` ADD FOREIGN KEY (`character_id`) REFERENCES `Character` (`character_id`);
-
-ALTER TABLE `Player_Characters` ADD FOREIGN KEY (`player_id`) REFERENCES `Player` (`player_id`);
-
-ALTER TABLE `Item` ADD FOREIGN KEY (`creator_id`) REFERENCES `Character` (`character_id`);
-
-ALTER TABLE `Location` ADD FOREIGN KEY (`ruler`) REFERENCES `Character` (`character_id`);
-
-ALTER TABLE `Event_Participants` ADD FOREIGN KEY (`character_id`) REFERENCES `Character` (`character_id`);
-
-ALTER TABLE `Event_Participants` ADD FOREIGN KEY (`event_id`) REFERENCES `Event` (`event_id`);
-
-ALTER TABLE `GenericRelation` ADD FOREIGN KEY (`relation_appearance`) REFERENCES `Session` (`session_id`);

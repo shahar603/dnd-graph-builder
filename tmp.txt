@@ -1,107 +1,227 @@
--- Start transaction for safety (optional, but good practice for multiple deletes)
-BEGIN TRANSACTION;
+-- Reverting changes based on the provided INSERT script (First Batch)
 
--- Event_Participants Table Deletes
--- These reference Character and Event, so delete these first.
-DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 22;
-DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 22;
-DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 22;
-DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 23;
-DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 23;
-DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 23;
-DELETE FROM Event_Participants WHERE character_id = 14 AND event_id = 23;
-DELETE FROM Event_Participants WHERE character_id = 14 AND event_id = 24;
-DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 24;
-DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 24;
-DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 24;
-DELETE FROM Event_Participants WHERE character_id = 14 AND event_id = 25;
-DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 26;
-DELETE FROM Event_Participants WHERE character_id = 16 AND event_id = 27;
-DELETE FROM Event_Participants WHERE character_id = 16 AND event_id = 28;
-DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 28;
-DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 28;
-DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 28;
-DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 29;
-DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 29;
-DELETE FROM Event_Participants WHERE character_id = 18 AND event_id = 29;
-DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 30;
-DELETE FROM Event_Participants WHERE character_id = 16 AND event_id = 30;
-DELETE FROM Event_Participants WHERE character_id = 18 AND event_id = 30;
-DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 31;
-DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 31;
-DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 31;
-DELETE FROM Event_Participants WHERE character_id = 17 AND event_id = 31;
-DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 32;
-DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 33;
-DELETE FROM Event_Participants WHERE character_id = 14 AND event_id = 33;
-DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 34;
-DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 34;
-DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 34;
-DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 35;
-DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 36;
-DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 36;
-DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 36;
-DELETE FROM Event_Participants WHERE character_id = 19 AND event_id = 36;
-DELETE FROM Event_Participants WHERE character_id = 20 AND event_id = 36;
+-- Start with tables that have foreign keys to other tables being deleted,
+-- or tables that are "join" tables.
 
--- GenericRelation Table Deletes
--- These can reference various tables, so delete these before the tables they might reference.
-DELETE FROM GenericRelation WHERE relation_id = 28;
-DELETE FROM GenericRelation WHERE relation_id = 29;
-DELETE FROM GenericRelation WHERE relation_id = 30;
-DELETE FROM GenericRelation WHERE relation_id = 31;
-DELETE FROM GenericRelation WHERE relation_id = 32;
-DELETE FROM GenericRelation WHERE relation_id = 33;
-DELETE FROM GenericRelation WHERE relation_id = 34;
-DELETE FROM GenericRelation WHERE relation_id = 35;
-DELETE FROM GenericRelation WHERE relation_id = 36;
-DELETE FROM GenericRelation WHERE relation_id = 37;
-DELETE FROM GenericRelation WHERE relation_id = 38;
+-- GenericRelation Table Deletes (First Batch)
+-- These relations link various tables, so they should be removed first.
+DELETE FROM GenericRelation WHERE relation_id = 39;
+DELETE FROM GenericRelation WHERE relation_id = 40;
+DELETE FROM GenericRelation WHERE relation_id = 41;
+DELETE FROM GenericRelation WHERE relation_id = 42;
+DELETE FROM GenericRelation WHERE relation_id = 43;
+DELETE FROM GenericRelation WHERE relation_id = 44;
+DELETE FROM GenericRelation WHERE relation_id = 45;
+DELETE FROM GenericRelation WHERE relation_id = 46;
+DELETE FROM GenericRelation WHERE relation_id = 47;
+DELETE FROM GenericRelation WHERE relation_id = 48;
+DELETE FROM GenericRelation WHERE relation_id = 49;
+DELETE FROM GenericRelation WHERE relation_id = 50;
+DELETE FROM GenericRelation WHERE relation_id = 51;
+DELETE FROM GenericRelation WHERE relation_id = 52;
+DELETE FROM GenericRelation WHERE relation_id = 53;
+DELETE FROM GenericRelation WHERE relation_id = 54;
+DELETE FROM GenericRelation WHERE relation_id = 55;
+DELETE FROM GenericRelation WHERE relation_id = 56;
+-- Alternative for GenericRelation if all IDs are consecutive and known:
+-- DELETE FROM GenericRelation WHERE relation_id BETWEEN 39 AND 56;
 
--- Event Table Deletes
--- Can be deleted now as Event_Participants entries are gone.
-DELETE FROM Event WHERE event_id = 22;
-DELETE FROM Event WHERE event_id = 23;
-DELETE FROM Event WHERE event_id = 24;
-DELETE FROM Event WHERE event_id = 25;
-DELETE FROM Event WHERE event_id = 26;
-DELETE FROM Event WHERE event_id = 27;
-DELETE FROM Event WHERE event_id = 28;
-DELETE FROM Event WHERE event_id = 29;
-DELETE FROM Event WHERE event_id = 30;
-DELETE FROM Event WHERE event_id = 31;
-DELETE FROM Event WHERE event_id = 32;
-DELETE FROM Event WHERE event_id = 33;
-DELETE FROM Event WHERE event_id = 34;
-DELETE FROM Event WHERE event_id = 35;
-DELETE FROM Event WHERE event_id = 36;
+-- Event_Participants Table Deletes (First Batch)
+-- This is a join table between Character and Event.
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 38;
+DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 38;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 38;
+DELETE FROM Event_Participants WHERE character_id = 19 AND event_id = 38;
+DELETE FROM Event_Participants WHERE character_id = 20 AND event_id = 38;
+DELETE FROM Event_Participants WHERE character_id = 5 AND event_id = 39;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 39;
+DELETE FROM Event_Participants WHERE character_id = 21 AND event_id = 40;
+DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 40;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 41;
+DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 41;
+DELETE FROM Event_Participants WHERE character_id = 5 AND event_id = 42;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 42;
+DELETE FROM Event_Participants WHERE character_id = 22 AND event_id = 42;
+DELETE FROM Event_Participants WHERE character_id = 23 AND event_id = 42;
+DELETE FROM Event_Participants WHERE character_id = 15 AND event_id = 42;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 43;
+DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 44;
+DELETE FROM Event_Participants WHERE character_id = 24 AND event_id = 44;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 44;
+DELETE FROM Event_Participants WHERE character_id = 6 AND event_id = 45;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 45;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 45;
+DELETE FROM Event_Participants WHERE character_id = 5 AND event_id = 45;
+DELETE FROM Event_Participants WHERE character_id = 25 AND event_id = 46;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 46;
+DELETE FROM Event_Participants WHERE character_id = 25 AND event_id = 47;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 48;
+DELETE FROM Event_Participants WHERE character_id = 26 AND event_id = 48;
+DELETE FROM Event_Participants WHERE character_id = 27 AND event_id = 48;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 49;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 50;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 50;
+DELETE FROM Event_Participants WHERE character_id = 5 AND event_id = 50;
+DELETE FROM Event_Participants WHERE character_id = 6 AND event_id = 50;
+DELETE FROM Event_Participants WHERE character_id = 28 AND event_id = 50;
+DELETE FROM Event_Participants WHERE character_id = 29 AND event_id = 50;
 
--- Item Table Deletes
--- Can be deleted now as GenericRelation entries referencing them are gone.
-DELETE FROM Item WHERE item_id = 10;
-DELETE FROM Item WHERE item_id = 11;
-DELETE FROM Item WHERE item_id = 12;
+-- Event Table Deletes (First Batch)
+-- Referenced by Event_Participants and GenericRelation.
+DELETE FROM Event WHERE event_id = 38;
+DELETE FROM Event WHERE event_id = 39;
+DELETE FROM Event WHERE event_id = 40;
+DELETE FROM Event WHERE event_id = 41;
+DELETE FROM Event WHERE event_id = 42;
+DELETE FROM Event WHERE event_id = 43;
+DELETE FROM Event WHERE event_id = 44;
+DELETE FROM Event WHERE event_id = 45;
+DELETE FROM Event WHERE event_id = 46;
+DELETE FROM Event WHERE event_id = 47;
+DELETE FROM Event WHERE event_id = 48;
+DELETE FROM Event WHERE event_id = 49; -- Note: Event ID 49 is also in the second batch. This deletes the one from the first script.
+DELETE FROM Event WHERE event_id = 50; -- Note: Event ID 50 is also in the second batch. This deletes the one from the first script.
+-- Alternative for Event if all IDs are consecutive and known:
+-- DELETE FROM Event WHERE event_id BETWEEN 38 AND 50;
 
--- Location Table Deletes
--- Can be deleted now as GenericRelation entries referencing them are gone.
-DELETE FROM Location WHERE location_id = 19;
-DELETE FROM Location WHERE location_id = 20;
-DELETE FROM Location WHERE location_id = 21;
+-- Item Table Deletes (First Batch)
+-- Referenced by GenericRelation. May reference Character (creator_id).
+DELETE FROM Item WHERE item_id = 13;
+DELETE FROM Item WHERE item_id = 14;
+DELETE FROM Item WHERE item_id = 15;
+DELETE FROM Item WHERE item_id = 16;
+DELETE FROM Item WHERE item_id = 17;
+-- Alternative for Item if all IDs are consecutive and known:
+-- DELETE FROM Item WHERE item_id BETWEEN 13 AND 17;
 
--- Character Table Deletes
--- Can be deleted now as Event_Participants and GenericRelation entries are gone.
-DELETE FROM Character WHERE character_id = 14;
-DELETE FROM Character WHERE character_id = 15;
-DELETE FROM Character WHERE character_id = 16;
-DELETE FROM Character WHERE character_id = 17;
-DELETE FROM Character WHERE character_id = 18;
-DELETE FROM Character WHERE character_id = 19;
-DELETE FROM Character WHERE character_id = 20;
+-- Location Table Deletes (First Batch)
+-- Referenced by GenericRelation.
+DELETE FROM Location WHERE location_id = 23;
+DELETE FROM Location WHERE location_id = 24;
+DELETE FROM Location WHERE location_id = 25;
+DELETE FROM Location WHERE location_id = 26;
+-- Alternative for Location if all IDs are consecutive and known:
+-- DELETE FROM Location WHERE location_id BETWEEN 23 AND 26;
 
--- Session Table Deletes
--- This table is likely independent or a top-level parent.
-DELETE FROM Session WHERE session_id = 5;
+-- Character Table Deletes (First Batch)
+-- Referenced by Event_Participants, GenericRelation, and potentially Item.
+DELETE FROM Character WHERE character_id = 21;
+DELETE FROM Character WHERE character_id = 22;
+DELETE FROM Character WHERE character_id = 23;
+DELETE FROM Character WHERE character_id = 24;
+DELETE FROM Character WHERE character_id = 25;
+DELETE FROM Character WHERE character_id = 26;
+DELETE FROM Character WHERE character_id = 27;
+DELETE FROM Character WHERE character_id = 28;
+DELETE FROM Character WHERE character_id = 29;
+-- Alternative for Character if all IDs are consecutive and known:
+-- DELETE FROM Character WHERE character_id BETWEEN 21 AND 29;
 
--- Commit transaction
-COMMIT;
--- Or ROLLBACK; if there was an issue and you want to undo the deletes in this transaction.
+-- Session Table Deletes (First Batch)
+-- This seems to be a more independent table in this context.
+DELETE FROM Session WHERE session_id = 6;
+
+------------------------------------------------------------------------------------
+-- Reverting changes based on the provided INSERT script (Second Batch - Leonard's Backstory)
+------------------------------------------------------------------------------------
+
+-- GenericRelation Table Deletes (Second Batch)
+DELETE FROM GenericRelation WHERE relation_id = 57;
+DELETE FROM GenericRelation WHERE relation_id = 58;
+DELETE FROM GenericRelation WHERE relation_id = 59;
+DELETE FROM GenericRelation WHERE relation_id = 60;
+DELETE FROM GenericRelation WHERE relation_id = 61;
+DELETE FROM GenericRelation WHERE relation_id = 62;
+DELETE FROM GenericRelation WHERE relation_id = 63;
+DELETE FROM GenericRelation WHERE relation_id = 64;
+DELETE FROM GenericRelation WHERE relation_id = 65;
+DELETE FROM GenericRelation WHERE relation_id = 66;
+DELETE FROM GenericRelation WHERE relation_id = 67;
+DELETE FROM GenericRelation WHERE relation_id = 68;
+DELETE FROM GenericRelation WHERE relation_id = 69;
+DELETE FROM GenericRelation WHERE relation_id = 70;
+DELETE FROM GenericRelation WHERE relation_id = 71;
+DELETE FROM GenericRelation WHERE relation_id = 72;
+-- Note: relation_id = 73 was commented out in the source script as likely to fail, so no DELETE is generated for it.
+-- Alternative for GenericRelation (Second Batch) if IDs are consecutive:
+-- DELETE FROM GenericRelation WHERE relation_id BETWEEN 57 AND 72;
+
+-- Event_Participants Table Deletes (Second Batch)
+DELETE FROM Event_Participants WHERE character_id = 31 AND event_id = 49;
+DELETE FROM Event_Participants WHERE character_id = 32 AND event_id = 49;
+DELETE FROM Event_Participants WHERE character_id = 33 AND event_id = 49;
+DELETE FROM Event_Participants WHERE character_id = 37 AND event_id = 49;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 49;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 50;
+DELETE FROM Event_Participants WHERE character_id = 34 AND event_id = 50;
+DELETE FROM Event_Participants WHERE character_id = 34 AND event_id = 51;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 51;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 52;
+DELETE FROM Event_Participants WHERE character_id = 35 AND event_id = 52;
+DELETE FROM Event_Participants WHERE character_id = 36 AND event_id = 52;
+DELETE FROM Event_Participants WHERE character_id = 30 AND event_id = 52;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 53;
+DELETE FROM Event_Participants WHERE character_id = 36 AND event_id = 53;
+DELETE FROM Event_Participants WHERE character_id = 30 AND event_id = 53;
+DELETE FROM Event_Participants WHERE character_id = 30 AND event_id = 54;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 54;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 55;
+DELETE FROM Event_Participants WHERE character_id = 30 AND event_id = 55;
+
+-- Event Table Deletes (Second Batch)
+-- Note: Event IDs 49 and 50 were also in the first batch.
+-- This will delete the versions inserted by the second script.
+DELETE FROM Event WHERE event_id = 49; -- Deletes 'Goldwrights'' Airship Attacked...'
+DELETE FROM Event WHERE event_id = 50; -- Deletes 'Infant Leonard Discovered...'
+DELETE FROM Event WHERE event_id = 51;
+DELETE FROM Event WHERE event_id = 52;
+DELETE FROM Event WHERE event_id = 53;
+DELETE FROM Event WHERE event_id = 54;
+DELETE FROM Event WHERE event_id = 55;
+-- Alternative for Event (Second Batch) if IDs are consecutive:
+-- DELETE FROM Event WHERE event_id BETWEEN 49 AND 55;
+
+-- Item Table Deletes (Second Batch)
+DELETE FROM Item WHERE item_id = 18;
+DELETE FROM Item WHERE item_id = 19;
+DELETE FROM Item WHERE item_id = 20;
+DELETE FROM Item WHERE item_id = 21;
+DELETE FROM Item WHERE item_id = 22;
+DELETE FROM Item WHERE item_id = 23;
+-- Alternative for Item (Second Batch) if IDs are consecutive:
+-- DELETE FROM Item WHERE item_id BETWEEN 18 AND 23;
+
+-- Location Table Deletes (Second Batch)
+DELETE FROM Location WHERE location_id = 27;
+DELETE FROM Location WHERE location_id = 28;
+DELETE FROM Location WHERE location_id = 29;
+DELETE FROM Location WHERE location_id = 30;
+-- Alternative for Location (Second Batch) if IDs are consecutive:
+-- DELETE FROM Location WHERE location_id BETWEEN 27 AND 30;
+
+-- Character Table Deletes (New NPCs from Second Batch)
+DELETE FROM Character WHERE character_id = 30;
+DELETE FROM Character WHERE character_id = 31;
+DELETE FROM Character WHERE character_id = 32;
+DELETE FROM Character WHERE character_id = 33;
+DELETE FROM Character WHERE character_id = 34;
+DELETE FROM Character WHERE character_id = 35;
+DELETE FROM Character WHERE character_id = 36;
+DELETE FROM Character WHERE character_id = 37;
+-- Alternative for Character (Second Batch) if IDs are consecutive:
+-- DELETE FROM Character WHERE character_id BETWEEN 30 AND 37;
+
+-- Revert Update Existing Character (Leonard - ID 4) (Second Batch)
+-- IMPORTANT: The original character_description for character_id = 4 is unknown from the provided script.
+-- You will need to replace 'PREVIOUS_DESCRIPTION_UNKNOWN_PLEASE_REPLACE' with the actual description
+-- that existed BEFORE the second script's UPDATE statement was run.
+UPDATE Character
+SET character_description = 'PREVIOUS_DESCRIPTION_UNKNOWN_PLEASE_REPLACE'
+WHERE character_id = 4;
+
+-- Session Table Deletes (Second Batch)
+DELETE FROM Session WHERE session_id = 7;
+
+
+COMMIT; -- Or use your database's equivalent command to finalize changes.
+-- ROLLBACK; -- If you want to test and then undo, use ROLLBACK (ensure you are in a transaction).

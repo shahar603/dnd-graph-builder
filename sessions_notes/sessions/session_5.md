@@ -1,4 +1,4 @@
-[[Session 1]] ended with [[Chapters/The Dragon Designer/The Party|The Party]] facing off against a group of 4 lesser undead, and one armed and armored undead creature. Dark miasma covering the ground. 
+[[Session 4]] ended with [[Chapters/The Dragon Designer/The Party|The Party]] facing off against a group of 4 lesser undead, and one armed and armored undead creature. Dark miasma covering the ground. 
 
 Right as both sides were initiating combat, a goliath barbarian seemed to have appeared through a tear in reality.
 

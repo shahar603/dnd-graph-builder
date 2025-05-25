@@ -1,0 +1,84 @@
+-- Session Table Inserts
+INSERT INTO Session (session_id, session_description) VALUES (7, 'Leonard''s Backstory - Details of his origins, upbringing with the ShieldWagons, betrayal by Kael, and motivations.');
+
+-- Update Existing Character (Leonard - ID 4)
+UPDATE Character
+SET character_description = 'Human male, 25 years old, 192cm, 80kg. Muscular build, chestnut hair in a short ponytail, blue-green eyes. Wears rough work clothes and armor marked with the BattleWagons/ShieldWagons crest. Heavy scars from battles and failed experiments. Carries a fragment of a golden nugget—a relic from his past. Skilled in magical/mechanical tinkering, quick learner, but low charisma and sometimes reckless curiosity. Proud but respectful. Orphaned as an infant from a flying ship wreckage (parents Elias & Maren Goldwright, artificers, killed by a dragon attack near Dragonlands after their friend Ethan Blackwood/Zha''thik, a demon spy, was involved). Raised by the ShieldWagons mercenary group (leader Garrick Shieldheart, combat mentor Thorne Ironfist, friends Ryn & Kael). Discovered tinkering abilities disarming a magical trap. Left ShieldWagons after Kael betrayed him, stealing the golden nugget (artifact from his parents) after Ryn''s death. Tracked Kael to Byriver. Short-term goal: Learn to sail a flyship, find tinkering mentor. Long-term: Build own flying workshop, uncover secrets of the golden nugget and his past.'
+WHERE character_id = 4;
+
+-- Character Table Inserts (New NPCs from Leonard's Backstory)
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (30, 'Kael', 'Leonard''s former childhood friend and rival in the ShieldWagons. Grew envious of Leonard, betrayed him by stealing the Golden Nugget after Ryn''s death, and fled.', 'NPC', 'BAD_CHAOTIC', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (31, 'Elias Goldwright', 'Leonard''s father, a visionary artificer specializing in magitech airship technology (prototype powered by a golden arcane core). Killed in a dragon attack while testing their prototype airship.', 'HISTORICAL_PC', 'GOOD', 'ALL'); -- Or NPC
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (32, 'Maren Goldwright', 'Leonard''s mother, a visionary artificer specializing in magitech airship technology. Killed in a dragon attack alongside her husband Elias while testing their prototype airship.', 'HISTORICAL_PC', 'GOOD', 'ALL'); -- Or NPC
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (33, 'Ethan Blackwood (Zha''thik)', 'Friend of Elias and Maren Goldwright, secretly a demon spy named Zha''thik. Was present during the dragon attack, survived, and escaped to the Demonlands to continue work on enchanted gold.', 'NPC', 'BAD_LAWFUL', 'DM');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (34, 'Chief Garrick Shieldheart', 'Stoic and wise leader of the ShieldWagons mercenary group. Acted as a de facto father to Leonard, mentoring him. Later revealed details of Leonard''s origins.', 'NPC', 'LAWFUL', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (35, 'Mentor Thorne Ironfist', 'Grizzled veteran of the ShieldWagons who trained Leonard in combat. Initially skeptical but later recognized Leonard''s talent with ranged weapons.', 'NPC', 'NEUTRAL', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (36, 'Ryn', 'Leonard''s childhood confidant and friend in the ShieldWagons. Son of a ShieldWagon member. Gravely injured and died during a bandit ambush on a merchant escort mission.', 'NPC', 'GOOD', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (37, 'Dragon (Attacked Goldwrights)', 'An unnamed dragon attracted to the magical power of the Goldwrights'' prototype airship. Attacked and destroyed the ship, leading to Elias and Maren''s deaths.', 'MONSTER', 'BAD', 'ALL');
+
+-- Item Table Inserts (from Leonard's Backstory)
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (18, 'Golden Nugget (Arcane Core Fragment)', 'A glowing golden fragment of a unique golden arcane core that powered Elias and Maren Goldwright''s prototype airship. Found with infant Leonard. Used by Leonard to channel his latent magical energy. Stolen by Kael.', NULL, 'LEGENDARY', 1, 31); -- Creator Elias/Maren
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (19, 'Goldwrights'' Prototype Airship', 'A revolutionary flying vessel developed by Elias and Maren Goldwright, powered by a golden arcane core. Destroyed in a dragon attack.', NULL, 'LEGENDARY', 1, 31); -- Creator Elias/Maren
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (20, 'Emergency Escape Pod (Goldwrights)', 'Escape pod from the Goldwrights'' prototype airship in which infant Leonard was placed before the ship''s destruction.', NULL, 'RARE', 0, 31); -- Creator Elias/Maren
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (21, 'Cryptic Note ("---golde---powe--cell")', 'A cryptic note found with infant Leonard and the Golden Nugget fragment.', NULL, 'COMMON', 0, NULL);
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (22, 'Leonard''s Makeshift Toolkit', 'A toolkit Leonard used in his early days, including when he disarmed the magical trap.', NULL, 'COMMON', 0, 4); -- Creator Leonard
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (23, 'Chief Garrick''s Gifted Tools', 'A set of tools gifted to Leonard by Chief Garrick Shieldheart after recognizing his tinkering potential.', NULL, 'UNCOMMON', 0, 34); -- Creator Garrick (as giver)
+
+-- Location Table Inserts (from Leonard's Backstory)
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (27, 'Airship Wreckage Site (Leonard''s Origin)', 'Site where the Goldwrights'' prototype airship crashed and infant Leonard was found by the ShieldWagons.', 'Near ShieldWagons Camp', 'UNKNOWN', NULL);
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (28, 'Dragonlands Border Region', 'Secret testing area for the Goldwrights'' airship, close to the border with the Dragonlands, where the dragon attack occurred.', 'Bordering Dragonlands', 'UNKNOWN', NULL);
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (29, 'Demonlands', 'Region where Zha''thik (Ethan Blackwood) escaped to after the airship crash to continue work on enchanted gold.', 'UNKNOWN (Presumably infernal/corrupted)', 'UNKNOWN', NULL); -- Zha'thik is a demon
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (30, 'Abandoned Fort (Bandit Hideout)', 'An abandoned fort used as a bandit hideout, where Leonard first notably used his artificer abilities to disarm a magical trap.', 'UNKNOWN', 'Temperate', NULL);
+
+-- Event Table Inserts (Historical Events from Leonard's Backstory)
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (49, 'Goldwrights'' Airship Attacked by Dragon; Parents'' Death', 'HISTORICAL', 'Leonard''s Infancy');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (50, 'Infant Leonard Discovered by ShieldWagons', 'HISTORICAL', 'Leonard''s Infancy');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (51, 'Garrick Reveals Leonard''s Origins', 'HISTORICAL', 'Leonard''s Youth');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (52, 'Leonard Disarms Magical Trap at Bandit Hideout', 'HISTORICAL', 'Leonard''s Late Teens');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (53, 'ShieldWagons Ambushed; Ryn''s Death', 'HISTORICAL', 'Leonard''s Adulthood (Pre-Campaign)');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (54, 'Kael Betrays Leonard and Steals Golden Nugget', 'HISTORICAL', 'Leonard''s Adulthood (Pre-Campaign)');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (55, 'Leonard Pursues Kael; Loses Trail in Byriver', 'HISTORICAL', 'Leonard''s Adulthood (Pre-Campaign)');
+
+-- Event_Participants Table Inserts (for Leonard's Backstory Events)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (31, 49); -- Elias Goldwright, Airship Attack
+INSERT INTO Event_Participants (character_id, event_id) VALUES (32, 49); -- Maren Goldwright, Airship Attack
+INSERT INTO Event_Participants (character_id, event_id) VALUES (33, 49); -- Ethan Blackwood (Zha'thik), Airship Attack (survived)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (37, 49); -- Dragon (Attacked Goldwrights), Airship Attack
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 49); -- Leonard (as infant), Airship Attack (survived)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 50); -- Leonard (as infant), Discovered
+INSERT INTO Event_Participants (character_id, event_id) VALUES (34, 50); -- Chief Garrick Shieldheart, Discovered Leonard
+INSERT INTO Event_Participants (character_id, event_id) VALUES (34, 51); -- Chief Garrick Shieldheart, Reveals Origins
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 51); -- Leonard, Learns Origins
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 52); -- Leonard, Disarms Trap
+INSERT INTO Event_Participants (character_id, event_id) VALUES (35, 52); -- Mentor Thorne Ironfist, Witness to Trap Disarm
+INSERT INTO Event_Participants (character_id, event_id) VALUES (36, 52); -- Ryn, Witness to Trap Disarm
+INSERT INTO Event_Participants (character_id, event_id) VALUES (30, 52); -- Kael, Witness to Trap Disarm (triggered trap)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 53); -- Leonard, Ambush/Ryn's Death
+INSERT INTO Event_Participants (character_id, event_id) VALUES (36, 53); -- Ryn, Ambush/Ryn's Death (victim)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (30, 53); -- Kael, Ambush/Ryn's Death
+INSERT INTO Event_Participants (character_id, event_id) VALUES (30, 54); -- Kael, Betrayal/Theft
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 54); -- Leonard, Betrayed/Victim of Theft
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 55); -- Leonard, Pursues Kael
+INSERT INTO Event_Participants (character_id, event_id) VALUES (30, 55); -- Kael, Pursued by Leonard
+
+-- GenericRelation Table Inserts (for Leonard's Backstory)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (57, 'CHARACTER', 4, 'ITEM', 18, 'Carries a fragment of the Golden Nugget (Arcane Core Fragment) from his past.', 7);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (58, 'CHARACTER', 31, 'CHARACTER', 32, 'Were married and worked together as visionary artificers.', 7); -- Elias and Maren
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (59, 'CHARACTER', 31, 'ITEM', 19, 'Co-developed the Prototype Airship.', 7); -- Elias and Airship
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (60, 'CHARACTER', 32, 'ITEM', 19, 'Co-developed the Prototype Airship.', 7); -- Maren and Airship
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (61, 'CHARACTER', 31, 'CHARACTER', 4, 'Father of Leonard.', 7);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (62, 'CHARACTER', 32, 'CHARACTER', 4, 'Mother of Leonard.', 7);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (63, 'CHARACTER', 33, 'CHARACTER', 31, 'Was a friend to Elias Goldwright (secretly a demon spy).', 7); -- Ethan/Zha'thik and Elias
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (64, 'CHARACTER', 34, 'CHARACTER', 4, 'Raised Leonard and acted as his de facto father in the ShieldWagons.', 7); -- Garrick and Leonard
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (65, 'CHARACTER', 35, 'CHARACTER', 4, 'Was Leonard''s combat instructor in the ShieldWagons.', 7); -- Thorne and Leonard
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (66, 'CHARACTER', 4, 'CHARACTER', 36, 'Were close friends and confidants in the ShieldWagons.', 7); -- Leonard and Ryn
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (67, 'CHARACTER', 4, 'CHARACTER', 30, 'Were childhood friends and rivals in the ShieldWagons.', 7); -- Leonard and Kael
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (68, 'CHARACTER', 30, 'ITEM', 18, 'Stole the Golden Nugget from Leonard.', 7); -- Kael stole Nugget
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (69, 'CHARACTER', 4, 'ITEM', 22, 'Used his Makeshift Toolkit to disarm a magical trap.', 7); -- Leonard and Makeshift Toolkit
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (70, 'CHARACTER', 34, 'ITEM', 23, 'Gifted a set of tools to Leonard.', 7); -- Garrick gifted Tools
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (71, 'ITEM', 18, 'EVENT', 52, 'A piece of the Golden Nugget was used by Leonard to channel energy during the trap disarming event.', 7);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (72, 'CHARACTER', 4, 'LOCATION', 1, 'Ended up in Byriver after losing Kael''s trail.', 7); -- Leonard and Byriver (Loc ID 1)
+-- Corrected approach for relation 73: Describe in Garrick's character_description or link Garrick to an Event representing ShieldWagons activities.
+-- For now, I will remove relation 73 and assume Garrick's leadership is part of his description. If a "ShieldWagons" entity (e.g. as an Event or placeholder Character) were created, this could be a valid relation.
+-- For the purpose of this exercise, I will assume the group "ShieldWagons" is context for characters rather than a linkable entity to avoid schema error.
+-- The connection of characters to ShieldWagons is established through their descriptions and their relationships to Garrick/Thorne.

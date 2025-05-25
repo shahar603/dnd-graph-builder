@@ -1,0 +1,97 @@
+-- Session Table Inserts
+INSERT INTO Session (session_id, session_description) VALUES (6, 'Session 5: Granite arrives, party fights undead, Stella''s transformation, Eleca joins, Boltan investigation and new mission to Aldor.');
+
+-- Character Table Inserts (New NPCs, Monsters, and Stella's Lich Form for Session 5)
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (21, 'Huge Necrotic Worm (Session 5)', 'A large necrotic worm that jumped from an undead creature and attacked Stella near Boltan.', 'MONSTER', 'BAD', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (22, 'Nel Almador', 'An individual, likely an artificer/scholar, remembered by Granite. Got split by a purple light. Workshop in Aldor. Friend of Brox.', 'NPC', 'UNKNOWN', 'ALL'); -- Referenced as "Nel" in notes. [cite: 1]
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (23, 'Mysterious Elf Kid', 'A small elf kid witnessed by Granite. Wore a lightning amulet, took Granite''s yellow gemstone, attached it to an egg that hatched into The Black Skeledragon.', 'NPC', 'UNKNOWN', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (24, 'Stella (Lich Form)', 'The transformed state of Stella after being hit by an unknown force near Boltan. Skin rotted, aura turned dark. Flew off with a pulse of necrotic energy.', 'MONSTER', 'BAD_CHAOTIC', 'DM'); -- Lich form of Stella (Char ID 7)
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (25, 'Brox of Agrata', 'Leader of survivors in Boltan. An airship pilot from Agrata ("The City in the Sky"), on vacation in Boltan. Friend of Nel Almador.', 'NPC', 'GOOD', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (26, 'Elay', 'A survivor from Aldor, found wounded in Boltan. Reported losing friends to zombie ogres.', 'NPC', 'NEUTRAL', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (27, 'Terry', 'A survivor from Aldor, found wounded in Boltan. Reported losing friends to zombie ogres.', 'NPC', 'NEUTRAL', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (28, 'Zombie Ogre (Aldor Area)', 'Large undead ogres encountered by survivors of Aldor and later seen by the party on the road to Aldor.', 'MONSTER', 'BAD_CHAOTIC', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (29, 'Ghoul (Aldor Road)', 'Undead creature seen in a pair with a Zombie Ogre on the road to Aldor.', 'MONSTER', 'BAD_CHAOTIC', 'ALL');
+
+-- Location Table Inserts (for Session 5)
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (23, 'Nel Almador''s Workshop (Aldor)', 'Workshop of Nel Almador, located in the village of Aldor.', 'Aldor', 'UNKNOWN', NULL);
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (24, 'Agrata (City in the Sky)', 'A city reportedly in the sky, home to Brox and other airship pilots.', 'UNKNOWN (Aerial)', 'UNKNOWN', NULL);
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (25, 'Aldor Village', 'A village near Boltan, suffering from zombie attacks. Contains Nel Almador''s workshop. Party tasked to search for survivors here.', 'Near Boltan', 'Affected by plague/undead (implied)', NULL);
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (26, 'Graveyard Temple of Ahallona (Boltan)', 'A temple in Boltan''s graveyard, devoted to Ahallona. Implanted into a large tree. Houses the Amulet of Ahallona, emitting a protective shield.', 'Boltan', 'Temperate (shielded)', NULL);
+
+-- Item Table Inserts (for Session 5)
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (13, 'Granite''s Time Travel Contraption', 'A box-like contraption with hourglasses on the sides. Used by Granite with a yellow gemstone to unintentionally time travel.', NULL, 'LEGENDARY', 1, NULL);
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (14, 'Yellow Gemstone (Time/Dragon)', 'A weird yellow gemstone inserted by Granite into his time travel contraption. Later taken by an elf kid, attached to an egg, and became embedded in The Black Skeledragon''s (Character ID 15) chest. Likely a Dragon-growing stone (Item ID 10 type).', NULL, 'LEGENDARY', 1, NULL);
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (15, 'Elf Kid''s Lightning Amulet', 'A lightning amulet worn by the mysterious elf kid who interacted with the yellow gemstone and dragon egg.', NULL, 'RARE', 1, NULL);
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (16, 'Runed Egg (Black Skeledragon Origin)', 'A big egg with runes inscribed on it. Hatched into a small half black/half skeleton dragon (The Black Skeledragon - Character ID 15) after the yellow gemstone was attached to it, then grew rapidly.', NULL, 'LEGENDARY', 0, NULL); -- The egg itself is a critical plot item.
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (17, 'The Amulet of Ahallona', 'A white stone embedded into the shrine at Boltan''s Graveyard Temple. Emits a protective shield (Abjuration magic) against miasma and undead, empowered by shrine/tombstone runes. It is getting weaker.', NULL, 'VERY_RARE', 1, NULL); -- Deity Ahallona or her followers likely creators.
+
+-- Event Table Inserts (for Session 5)
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (38, 'Combat encounter with undead (4 lesser, 1 leader) at Boltan outskirts; Granite joins.', 'ENCOUNTER', 'Boltan Arrival');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (39, 'Huge Necrotic Worm attacks Stella; Leonard heals her.', 'ENCOUNTER', 'Boltan Arrival Combat');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (40, 'Granite explains his time travel and shares memories of Nel Almador, elf kid, and The Black Skeledragon''s origin.', 'GENERAL', 'Revelation');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (41, 'The End of the Dungeons and the Fall of the Gods (Historical Event Identified)', 'HISTORICAL', 'Ancient Past'); -- Vince recognizes this event. [cite: 1]
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (42, 'Stella is struck by an unknown force and transforms into a Lich, then departs.', 'GENERAL', 'Transformation');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (43, 'Eleca is met at Boltan outskirts and joins the party.', 'GENERAL', 'New Party Member');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (44, 'Party meets Brox of Agrata, leader of Boltan survivors.', 'GENERAL', 'Information Gathering');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (45, 'Brox tasks party to search Aldor for survivors and check Nel Almador''s workshop.', 'GENERAL', 'New Mission');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (46, 'Leonard aids wounded Aldor survivors (Elay and Terry) in Boltan.', 'GENERAL', 'Aid Rendered');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (47, 'Vince investigates Boltan''s Graveyard Temple and identifies The Amulet of Ahallona.', 'GENERAL', 'Discovery');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (48, 'Party encounters Zombie Ogre and Ghouls on the road to Aldor.', 'ENCOUNTER', 'Travel to Aldor');
+
+-- Event_Participants Table Inserts (for Session 5)
+-- PCs: Vince (3), Stella (7 until Event 42), Leonard (4), Granite (5 from Event 38), Eleca (6 from Event 43)
+-- Undead from Session 4: Rotten Ambusher (19), Rotten Ambusher Leader (20)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 38); -- Vince, Undead Combat
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 38); -- Stella, Undead Combat
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 38); -- Leonard, Undead Combat
+INSERT INTO Event_Participants (character_id, event_id) VALUES (19, 38); -- Rotten Ambusher (x4), Undead Combat
+INSERT INTO Event_Participants (character_id, event_id) VALUES (20, 38); -- Rotten Ambusher Leader, Undead Combat
+INSERT INTO Event_Participants (character_id, event_id) VALUES (5, 38); -- Granite, Joins Undead Combat
+INSERT INTO Event_Participants (character_id, event_id) VALUES (21, 39); -- Huge Necrotic Worm, Attacks Stella
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 39); -- Stella, Attacked by worm
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 39); -- Leonard, Heals Stella
+INSERT INTO Event_Participants (character_id, event_id) VALUES (5, 40); -- Granite, Explains backstory
+INSERT INTO Event_Participants (character_id, event_id) VALUES (22, 40); -- Nel Almador, Subject of Granite's story
+INSERT INTO Event_Participants (character_id, event_id) VALUES (23, 40); -- Mysterious Elf Kid, Subject of Granite's story
+INSERT INTO Event_Participants (character_id, event_id) VALUES (15, 40); -- The Black Skeledragon, Subject of Granite's story (origin)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 41); -- Vince, Recognizes "End of Dungeons" event
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 42); -- Stella, Transforms into Lich
+INSERT INTO Event_Participants (character_id, event_id) VALUES (24, 42); -- Stella (Lich Form), Emerges from transformation
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 42); -- Vince, Witnesses Stella's transformation
+INSERT INTO Event_Participants (character_id, event_id) VALUES (6, 43); -- Eleca, Meets party and joins
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 43); -- Vince, Meets Eleca
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 43); -- Leonard, Meets Eleca
+INSERT INTO Event_Participants (character_id, event_id) VALUES (5, 43); -- Granite, Meets Eleca
+INSERT INTO Event_Participants (character_id, event_id) VALUES (25, 44); -- Brox of Agrata, Meets party
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 44); -- Vince, Meets Brox
+INSERT INTO Event_Participants (character_id, event_id) VALUES (25, 45); -- Brox of Agrata, Tasks party regarding Aldor
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 46); -- Leonard, Aids survivors
+INSERT INTO Event_Participants (character_id, event_id) VALUES (26, 46); -- Elay, Aided by Leonard
+INSERT INTO Event_Participants (character_id, event_id) VALUES (27, 46); -- Terry, Aided by Leonard
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 47); -- Vince, Investigates temple
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 48); -- Vince, Encounters Zombie Ogre/Ghouls
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 48); -- Leonard, Encounters Zombie Ogre/Ghouls
+INSERT INTO Event_Participants (character_id, event_id) VALUES (5, 48); -- Granite, Encounters Zombie Ogre/Ghouls
+INSERT INTO Event_Participants (character_id, event_id) VALUES (6, 48); -- Eleca, Encounters Zombie Ogre/Ghouls
+INSERT INTO Event_Participants (character_id, event_id) VALUES (28, 48); -- Zombie Ogre, Encountered
+INSERT INTO Event_Participants (character_id, event_id) VALUES (29, 48); -- Ghoul, Encountered
+
+-- GenericRelation Table Inserts (for Session 5)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (39, 'CHARACTER', 5, 'ITEM', 13, 'Used the Time Travel Contraption.', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (40, 'ITEM', 13, 'ITEM', 14, 'Was powered by the Yellow Gemstone for time travel.', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (41, 'CHARACTER', 22, 'EVENT', 40, 'Remembered by Granite as being split by purple light (part of Event 40 explanation, linked to Event 41).', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (42, 'CHARACTER', 23, 'ITEM', 14, 'Took the Yellow Gemstone from Granite''s contraption.', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (43, 'CHARACTER', 23, 'ITEM', 15, 'Wore a Lightning Amulet.', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (44, 'ITEM', 14, 'ITEM', 16, 'Yellow Gemstone was attached to the Runed Egg.', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (45, 'ITEM', 16, 'CHARACTER', 15, 'Runed Egg hatched into The Black Skeledragon.', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (46, 'CHARACTER', 15, 'ITEM', 14, 'The Black Skeledragon has the Yellow Gemstone in its chest.', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (47, 'EVENT', 40, 'EVENT', 41, 'Granite''s recalled memory of a purple flash was identified by Vince as ''The End of the Dungeons and the Fall of the Gods'' historical event.', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (48, 'CHARACTER', 7, 'EVENT', 42, 'Underwent transformation into a Lich during Event 42.', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (49, 'CHARACTER', 7, 'CHARACTER', 24, 'Original persona transformed into Stella (Lich Form).', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (50, 'CHARACTER', 25, 'LOCATION', 24, 'Is an airship pilot from Agrata (City in the Sky).', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (51, 'CHARACTER', 25, 'LOCATION', 25, 'Requested party to investigate Aldor Village.', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (52, 'LOCATION', 25, 'LOCATION', 23, 'Aldor Village contains Nel Almador''s Workshop.', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (53, 'CHARACTER', 26, 'CHARACTER', 28, 'Reported losing friends to Zombie Ogres.', 6); -- Elay and Zombie Ogres
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (54, 'LOCATION', 26, 'ITEM', 17, 'Graveyard Temple of Ahallona in Boltan houses The Amulet of Ahallona.', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (55, 'ITEM', 17, 'LOCATION', 21, 'The Amulet of Ahallona provides a protective shield for Boltan (Location ID for Boltan is 21 from Session 4).', 6);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (56, 'CHARACTER', 21, 'CHARACTER', 7, 'Attacked Stella before her transformation.', 6); -- Huge Necrotic Worm attacked Stella

@@ -102,14 +102,14 @@ DASHBOARD_PAGE_HTML = '''
         <h2 class="text-2xl font-semibold text-gray-700 mb-4">Database Management</h2>
         <div class="btn-group">
             <a href="{{ url_for('view_db.view_db') }}" class="btn btn-info">View Database</a>
-            <a href="{{ url_for('graph_view.graph_view') }}" class="btn btn-info">View DB Graph</a> {# Added this line #}
+            <a href="{{ url_for('graph_view.graph_view') }}" class="btn btn-info">View DB Graph</a>
         </div>
 
         <h2 class="text-2xl font-semibold text-gray-700 mt-8 mb-4">Entity Management</h2>
         <div class="btn-group">
-            <a href="#" class="btn btn-action">Create New Entity</a>
-            <a href="#" class="btn btn-info">Update Existing Entity</a>
-            <a href="#" class="btn btn-danger">Delete Existing Entity</a>
+            <a href="{{ url_for('create_entity.create_entity') }}" class="btn btn-action">Create New Entity</a>
+            <a href="{{ url_for('update_entity.update_entity_route') }}" class="btn btn-info">Update Existing Entity</a>
+            <a href="{{ url_for('delete_entity.delete_entity_route') }}" class="btn btn-danger">Delete Existing Entity</a>
         </div>
 
         <h2 class="text-2xl font-semibold text-gray-700 mt-8 mb-4">Connection Management</h2>
@@ -141,4 +141,3 @@ def dashboard():
 
     # Render the dashboard HTML, passing the role for display
     return render_template_string(DASHBOARD_PAGE_HTML, role_display=role_display)
-

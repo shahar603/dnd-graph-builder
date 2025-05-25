@@ -9,6 +9,10 @@ from pages.view_db import view_db_bp
 from pages.import_notes import import_notes_bp
 from pages.graph_view import graph_view_bp # Import the new blueprint
 
+from pages.create_entity import create_entity_bp
+from pages.delete_entity import delete_entity_bp
+from pages.update_entity import update_entity_bp
+
 app = Flask(__name__)
 app.secret_key = os.urandom(24) # Set a secret key for session management
 
@@ -17,7 +21,10 @@ app.register_blueprint(auth_bp)
 app.register_blueprint(dashboard_bp)
 app.register_blueprint(view_db_bp)
 app.register_blueprint(import_notes_bp)
-app.register_blueprint(graph_view_bp) # Register the new blueprint
+app.register_blueprint(graph_view_bp) 
+app.register_blueprint(create_entity_bp) 
+app.register_blueprint(delete_entity_bp) 
+app.register_blueprint(update_entity_bp) 
 
 # Register teardown function for database connection
 app.teardown_appcontext(close_db_connection)

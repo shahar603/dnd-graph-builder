@@ -163,14 +163,11 @@ GRAPH_VIEW_HTML = '''
                 .selectAll("text")
                 .data(graph.nodes)
                 .join("text")
-                .attr("font-size", 10)
-                .attr("fill", "#333")
                 .attr("text-anchor", "middle")
-                .attr("dy", "0.35em") // Vertically center text
-                .text(d => d.name)
-                .clone(true).lower() // Clone for text outline
-                .attr("stroke", "white")
-                .attr("stroke-width", 3);
+                .attr("dy", "0.35em")
+                .style("font-size", "10px")
+                .style("fill", "#333")
+                .text(d => d.name);
 
 
             // Add titles for tooltips

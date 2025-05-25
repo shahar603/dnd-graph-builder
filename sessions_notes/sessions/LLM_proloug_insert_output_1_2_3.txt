@@ -1,0 +1,127 @@
+-- Session Table Inserts
+INSERT INTO Session (session_id, session_description) VALUES (2, 'Session 1: Recruitment and journey to Ahallona Temple.');
+INSERT INTO Session (session_id, session_description) VALUES (3, 'Session 2: Arrival at Ahallona Temple, first encounter with Heldrax.');
+INSERT INTO Session (session_id, session_description) VALUES (4, 'Session 3: Giant''s lair, second encounter with Heldrax, and the final battle in Briver.');
+-- Character Table Inserts
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (8, 'Officer of tLoB', 'An officer who recruited Vince, Stella, and Leonard to find a solution to Heldrax. "tLoB" is an unknown entity/organization in Briver.', 'NPC', 'UNKNOWN', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (9, 'Giant', 'A large humanoid creature encountered by the party in the mountains near the Ahallona temple.', 'MONSTER', 'UNKNOWN', 'ALL'); -- For the first giant encountered
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (10, 'Giant (Lair Inhabitant)', 'One of five giants found in the steamy caverns, tinkering with traps, riding equipment, and a steam generator.', 'MONSTER', 'BAD_CHAOTIC', 'ALL'); -- Assuming alignment for lair giants
+-- Note: We can create 5 distinct entries if needed, or use this as a template. For now, one template for these.
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (11, 'Ballista Crew Member', 'A member of Briver''s Ballista Crew, needed rescuing during Heldrax''s attack.', 'NPC', 'UNKNOWN', 'ALL'); -- Placeholder for the crew
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (12, 'Travelling Performer', 'One of the travelling performers who had fireworks and helped stun Heldrax.', 'NPC', 'GOOD', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (13, 'Local Oddities Trader', 'A trader in Briver who provided the party with Potions of Invisibility.', 'NPC', 'NEUTRAL', 'ALL');
+UPDATE Location
+SET location_name = 'Ahallona Temple (Ruins)',
+    location_description = 'Ruined temple at the foot of the mountains near Briver, where the city was to pool its gold for Heldrax. Also known as the Temple Ruins.'
+WHERE location_id = 3;
+-- Item Table Inserts
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (5, 'Amulet of Fire Absorption', 'Magical amulet found and identified by Leonard in the Ahallona Temple shrine.', NULL, 'RARE', 1, NULL);
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (6, 'Steam Generator', 'A device found in the giants'' lair in the steamy caverns, later dismantled by the party.', NULL, 'UNCOMMON', 0, NULL); -- Assuming giants made it or it's tech
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (7, 'Gliders', 'Found by the party and used to quickly reach Briver from the mountains.', NULL, 'UNCOMMON', 0, NULL);
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (8, 'Fireworks', 'Used by travelling performers to stun Heldrax during the final battle in Briver.', NULL, 'COMMON', 0, NULL); -- Creator likely performers if custom, else NULL
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (9, 'Potion of Invisibility', 'Potion obtained from the local oddities trader in Briver, used by the party to sneak into the castle.', NULL, 'UNCOMMON', 1, 13); -- Creator is the trader (Char ID 13) if he made them, else NULL
+-- Event Table Inserts
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (3, 'Party recruited by Officer of tLoB.', 'GENERAL', 'Start of Adventure'); -- Session 1
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (4, 'Party travels towards Ahallona Temple.', 'GENERAL', 'Start of Adventure'); -- Session 1
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (5, 'Party fights a Giant in the mountains.', 'ENCOUNTER', 'Journey to Temple'); -- Session 2
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (6, 'Party arrives at Ahallona Temple.', 'GENERAL', 'Arrival at Temple'); -- Session 2
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (7, 'Leonard finds Amulet of Fire Absorption.', 'GENERAL', 'Temple Exploration'); -- Session 2
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (8, 'Party ambushes Heldrax at Ahallona Temple; Heldrax is weakened and flees.', 'ENCOUNTER', 'First Battle with Heldrax'); -- Session 2
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (9, 'Party discovers and enters Steamy Caverns (Skull Entrance).', 'GENERAL', 'Journey to Briver'); -- Session 3
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (10, 'Party encounters and fights 5 Giants in their lair.', 'ENCOUNTER', 'Giants Lair Battle'); -- Session 3
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (11, 'Party dismantles Steam Generator in Giants'' Lair.', 'GENERAL', 'Giants Lair Action'); -- Session 3
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (12, 'Party fights Heldrax in Steamy Caverns; Heldrax is weakened further and flees to Briver.', 'ENCOUNTER', 'Second Battle with Heldrax'); -- Session 3
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (13, 'Party uses Gliders to reach Briver.', 'GENERAL', 'Return to Briver'); -- Session 3
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (14, 'Heldrax terrorizes Briver city (observed by party).', 'ENCOUNTER', 'Briver Under Attack'); -- Session 3
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (15, 'Party helps travelling performers and locates oddities trader.', 'GENERAL', 'Briver Side Quests'); -- Session 3
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (16, 'Party obtains Potions of Invisibility from trader.', 'GENERAL', 'Acquisition'); -- Session 3
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (17, 'Party sneaks into Briver Castle.', 'GENERAL', 'Infiltration'); -- Session 3
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (18, 'Final battle with Heldrax on Briver Castle roof.', 'ENCOUNTER', 'Final Battle'); -- Session 3
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (19, 'Performers use fireworks to stun Heldrax.', 'GENERAL', 'Support Action'); -- Session 3
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (20, 'Party defeats Heldrax, saving Briver.', 'GENERAL', 'Victory'); -- Session 3
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (21, 'Party earns title ''The Heroes of Briver''.', 'GENERAL', 'Recognition'); -- Session 3
+-- Event_Participants Table Inserts
+-- Session 1 Events
+INSERT INTO Event_Participants (character_id, event_id) VALUES (8, 3); -- Officer of tLoB, Recruitment
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 3); -- Vince, Recruitment
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 3); -- Stella, Recruitment
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 3); -- Leonard, Recruitment
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 4); -- Vince, Travels to Temple
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 4); -- Stella, Travels to Temple
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 4); -- Leonard, Travels to Temple
+
+-- Session 2 Events
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 5); -- Vince, Fights Giant
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 5); -- Stella, Fights Giant
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 5); -- Leonard, Fights Giant
+INSERT INTO Event_Participants (character_id, event_id) VALUES (9, 5); -- Giant, Fights Giant
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 6); -- Vince, Arrives at Temple
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 6); -- Stella, Arrives at Temple
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 6); -- Leonard, Arrives at Temple
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 7); -- Leonard, Finds Amulet
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 8); -- Vince, Ambushes Heldrax
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 8); -- Stella, Ambushes Heldrax
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 8); -- Leonard, Ambushes Heldrax
+INSERT INTO Event_Participants (character_id, event_id) VALUES (2, 8); -- Heldrax, Ambushes Heldrax
+
+-- Session 3 Events
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 9); -- Vince, Discovers Caverns
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 9); -- Stella, Discovers Caverns
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 9); -- Leonard, Discovers Caverns
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 10); -- Vince, Fights 5 Giants
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 10); -- Stella, Fights 5 Giants
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 10); -- Leonard, Fights 5 Giants
+INSERT INTO Event_Participants (character_id, event_id) VALUES (10, 10); -- Giant (Lair Inhabitant), Fights 5 Giants (representing all 5)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 11); -- Vince, Dismantles Generator
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 11); -- Stella, Dismantles Generator
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 11); -- Leonard, Dismantles Generator
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 12); -- Vince, Fights Heldrax in Caverns
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 12); -- Stella, Fights Heldrax in Caverns
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 12); -- Leonard, Fights Heldrax in Caverns
+INSERT INTO Event_Participants (character_id, event_id) VALUES (2, 12); -- Heldrax, Fights Heldrax in Caverns
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 13); -- Vince, Uses Gliders
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 13); -- Stella, Uses Gliders
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 13); -- Leonard, Uses Gliders
+INSERT INTO Event_Participants (character_id, event_id) VALUES (2, 14); -- Heldrax, Terrorizes Briver
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 15); -- Vince, Helps performers/locates trader
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 15); -- Stella, Helps performers/locates trader
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 15); -- Leonard, Helps performers/locates trader
+INSERT INTO Event_Participants (character_id, event_id) VALUES (12, 15); -- Travelling Performer, Helps performers
+INSERT INTO Event_Participants (character_id, event_id) VALUES (13, 15); -- Oddities Trader, Locates trader
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 16); -- Vince, Obtains Potions
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 16); -- Stella, Obtains Potions
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 16); -- Leonard, Obtains Potions
+INSERT INTO Event_Participants (character_id, event_id) VALUES (13, 16); -- Oddities Trader, Obtains Potions (as giver)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 17); -- Vince, Sneaks into Castle
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 17); -- Stella, Sneaks into Castle
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 17); -- Leonard, Sneaks into Castle
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 18); -- Vince, Final Battle
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 18); -- Stella, Final Battle
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 18); -- Leonard, Final Battle
+INSERT INTO Event_Participants (character_id, event_id) VALUES (2, 18); -- Heldrax, Final Battle
+INSERT INTO Event_Participants (character_id, event_id) VALUES (12, 19); -- Travelling Performer, Uses Fireworks
+INSERT INTO Event_Participants (character_id, event_id) VALUES (2, 19); -- Heldrax, Uses Fireworks (as target)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 20); -- Vince, Defeats Heldrax
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 20); -- Stella, Defeats Heldrax (Primary)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 20); -- Leonard, Defeats Heldrax
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 21); -- Vince, Earns Title
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 21); -- Stella, Earns Title
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 21); -- Leonard, Earns Title
+-- GenericRelation Table Inserts
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (12, 'CHARACTER', 8, 'EVENT', 3, 'Recruited the party (Vince, Stella, Leonard).', 2); -- Officer of tLoB (ID 8) recruited for Event 3
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (13, 'CHARACTER', 3, 'EVENT', 4, 'Travelled towards Ahallona Temple.', 2); -- Vince (ID 3) part of Event 4 (Party travel)
+-- (Similar entries for Stella and Leonard for Event 4 can be added if individual relations are preferred over Event_Participants for this type of link)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (14, 'CHARACTER', 4, 'ITEM', 5, 'Found and identified the Amulet of Fire Absorption.', 3); -- Leonard (ID 4) found Item 5
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (15, 'ITEM', 5, 'LOCATION', 3, 'Found in Ahallona Temple.', 3); -- Amulet (ID 5) found in Location 3
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (16, 'CHARACTER', 2, 'EVENT', 8, 'Was ambushed by the party and fled.', 3); -- Heldrax (ID 2) involved in Event 8
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (17, 'CHARACTER', 3, 'LOCATION', 18, 'Discovered the Steamy Caverns.', 4); -- Vince (ID 3) party discovered Location 18
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (18, 'LOCATION', 18, 'CHARACTER', 10, 'Was the lair of 5 Giants.', 4); -- Caverns (ID 18) lair of Giant (ID 10 template)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (19, 'CHARACTER', 3, 'ITEM', 6, 'Party dismantled the Steam Generator.', 4); -- Vince (ID 3) party dismantled Item 6
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (20, 'CHARACTER', 3, 'ITEM', 7, 'Party found and used Gliders.', 4); -- Vince (ID 3) party used Item 7
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (21, 'CHARACTER', 13, 'ITEM', 9, 'Provided Potions of Invisibility to the party.', 4); -- Trader (ID 13) provided Item 9
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (22, 'CHARACTER', 12, 'ITEM', 8, 'Used Fireworks to stun Heldrax.', 4); -- Performer (ID 12) used Item 8
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (23, 'CHARACTER', 7, 'CHARACTER', 2, 'Primarily responsible for dismantling Heldrax.', 4); -- Stella (ID 7) defeated Heldrax (ID 2)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (24, 'EVENT', 20, 'LOCATION', 1, 'Saved Briver city by defeating Heldrax.', 4); -- Event 20 (Victory) saved Location 1 (Briver)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (25, 'CHARACTER', 3, 'EVENT', 21, 'Earned title ''The Heroes of Briver''.', 4); -- Vince, Event 21
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (26, 'CHARACTER', 7, 'EVENT', 21, 'Earned title ''The Heroes of Briver''.', 4); -- Stella, Event 21
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (27, 'CHARACTER', 4, 'EVENT', 21, 'Earned title ''The Heroes of Briver''.', 4); -- Leonard, Event 21

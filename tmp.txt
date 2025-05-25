@@ -1,0 +1,107 @@
+-- Start transaction for safety (optional, but good practice for multiple deletes)
+BEGIN TRANSACTION;
+
+-- Event_Participants Table Deletes
+-- These reference Character and Event, so delete these first.
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 22;
+DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 22;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 22;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 23;
+DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 23;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 23;
+DELETE FROM Event_Participants WHERE character_id = 14 AND event_id = 23;
+DELETE FROM Event_Participants WHERE character_id = 14 AND event_id = 24;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 24;
+DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 24;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 24;
+DELETE FROM Event_Participants WHERE character_id = 14 AND event_id = 25;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 26;
+DELETE FROM Event_Participants WHERE character_id = 16 AND event_id = 27;
+DELETE FROM Event_Participants WHERE character_id = 16 AND event_id = 28;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 28;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 28;
+DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 28;
+DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 29;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 29;
+DELETE FROM Event_Participants WHERE character_id = 18 AND event_id = 29;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 30;
+DELETE FROM Event_Participants WHERE character_id = 16 AND event_id = 30;
+DELETE FROM Event_Participants WHERE character_id = 18 AND event_id = 30;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 31;
+DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 31;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 31;
+DELETE FROM Event_Participants WHERE character_id = 17 AND event_id = 31;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 32;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 33;
+DELETE FROM Event_Participants WHERE character_id = 14 AND event_id = 33;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 34;
+DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 34;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 34;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 35;
+DELETE FROM Event_Participants WHERE character_id = 3 AND event_id = 36;
+DELETE FROM Event_Participants WHERE character_id = 7 AND event_id = 36;
+DELETE FROM Event_Participants WHERE character_id = 4 AND event_id = 36;
+DELETE FROM Event_Participants WHERE character_id = 19 AND event_id = 36;
+DELETE FROM Event_Participants WHERE character_id = 20 AND event_id = 36;
+
+-- GenericRelation Table Deletes
+-- These can reference various tables, so delete these before the tables they might reference.
+DELETE FROM GenericRelation WHERE relation_id = 28;
+DELETE FROM GenericRelation WHERE relation_id = 29;
+DELETE FROM GenericRelation WHERE relation_id = 30;
+DELETE FROM GenericRelation WHERE relation_id = 31;
+DELETE FROM GenericRelation WHERE relation_id = 32;
+DELETE FROM GenericRelation WHERE relation_id = 33;
+DELETE FROM GenericRelation WHERE relation_id = 34;
+DELETE FROM GenericRelation WHERE relation_id = 35;
+DELETE FROM GenericRelation WHERE relation_id = 36;
+DELETE FROM GenericRelation WHERE relation_id = 37;
+DELETE FROM GenericRelation WHERE relation_id = 38;
+
+-- Event Table Deletes
+-- Can be deleted now as Event_Participants entries are gone.
+DELETE FROM Event WHERE event_id = 22;
+DELETE FROM Event WHERE event_id = 23;
+DELETE FROM Event WHERE event_id = 24;
+DELETE FROM Event WHERE event_id = 25;
+DELETE FROM Event WHERE event_id = 26;
+DELETE FROM Event WHERE event_id = 27;
+DELETE FROM Event WHERE event_id = 28;
+DELETE FROM Event WHERE event_id = 29;
+DELETE FROM Event WHERE event_id = 30;
+DELETE FROM Event WHERE event_id = 31;
+DELETE FROM Event WHERE event_id = 32;
+DELETE FROM Event WHERE event_id = 33;
+DELETE FROM Event WHERE event_id = 34;
+DELETE FROM Event WHERE event_id = 35;
+DELETE FROM Event WHERE event_id = 36;
+
+-- Item Table Deletes
+-- Can be deleted now as GenericRelation entries referencing them are gone.
+DELETE FROM Item WHERE item_id = 10;
+DELETE FROM Item WHERE item_id = 11;
+DELETE FROM Item WHERE item_id = 12;
+
+-- Location Table Deletes
+-- Can be deleted now as GenericRelation entries referencing them are gone.
+DELETE FROM Location WHERE location_id = 19;
+DELETE FROM Location WHERE location_id = 20;
+DELETE FROM Location WHERE location_id = 21;
+
+-- Character Table Deletes
+-- Can be deleted now as Event_Participants and GenericRelation entries are gone.
+DELETE FROM Character WHERE character_id = 14;
+DELETE FROM Character WHERE character_id = 15;
+DELETE FROM Character WHERE character_id = 16;
+DELETE FROM Character WHERE character_id = 17;
+DELETE FROM Character WHERE character_id = 18;
+DELETE FROM Character WHERE character_id = 19;
+DELETE FROM Character WHERE character_id = 20;
+
+-- Session Table Deletes
+-- This table is likely independent or a top-level parent.
+DELETE FROM Session WHERE session_id = 5;
+
+-- Commit transaction
+COMMIT;
+-- Or ROLLBACK; if there was an issue and you want to undo the deletes in this transaction.

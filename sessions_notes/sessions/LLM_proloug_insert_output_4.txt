@@ -1,0 +1,98 @@
+-- Session Table Inserts
+INSERT INTO Session (session_id, session_description) VALUES (5, 'Session 4: Downtime, new briefing from tLoB & Silva, introduction of The Black Skeledragon, dragon-growing stones, and the Necrotic Worm Plague in Faerie Whisper.');
+
+-- Character Table Inserts (NPCs and Monsters)
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (14, 'Silva', 'An individual who met the party at the court of tLoB. Briefed the party on a rising draconic threat, the Black Skeledragon, and dragon-growing stones.', 'NPC', 'UNKNOWN', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (15, 'The Black Skeledragon', 'A dragon that is half black and half skeleton dragon, with a yellow pulsing gem in its chest. A specific target for the party.', 'MONSTER', 'BAD', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (16, 'Villager (Turned Zombie 1)', 'A man who interrupted the briefing asking for help for his family from "their hell" (Faerie Whisper). Attacked the party, spread necrotic worms, and was found to be a zombie.', 'MONSTER', 'BAD_CHAOTIC', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (17, 'Villager (Turned Zombie 2)', 'The second person from the village of Faerie Whisper who was taken into care and later found to be a zombie. Dispatched by the party.', 'MONSTER', 'BAD_CHAOTIC', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (18, 'Necrotic Worm', 'Magical worms, necrotic in nature, that cause zombification. Spread by infected individuals.', 'MONSTER', 'BAD', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (19, 'Rotten Ambusher', 'One of five armed, rotten-looking characters that emerged from the ground and miasma at the edge of Boltan to ambush the party.', 'MONSTER', 'BAD', 'ALL');
+INSERT INTO Character (character_id, character_name, character_description, character_type, alignment, access_level) VALUES (20, 'Rotten Ambusher (Leader)', 'One of five armed, rotten-looking characters, specifically carrying a spear and armor.', 'MONSTER', 'BAD', 'ALL');
+
+-- Location Table Inserts
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (19, 'The Dragon Kingdom', 'A kingdom of dragons. A long-held border treaty between them and human races is reportedly being broken.', 'UNKNOWN', 'UNKNOWN', NULL);
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (20, 'Faerie Whisper (Hell)', 'A village referred to as "Hell" by one of its inhabitants. Affected by the Necrotic Worm Plague. The area is covered in black miasma and looks rotten.', 'South (relative to Briver, implied)', 'Plagued/Miasmic', NULL);
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (21, 'Boltan', 'A location at the edge of which the party''s cart halted. Near Faerie Whisper, where the party was ambushed.', 'Near Faerie Whisper', 'Plagued/Miasmic (surroundings)', NULL);
+INSERT INTO Location (location_id, location_name, location_description, region, climate, ruler) VALUES (22, 'Southern Regions (Dragon Attacks)', 'General area in the south where two dragon attacks were reported by Silva.', 'South', 'UNKNOWN', NULL); -- New Placeholder Location
+
+-- Item Table Inserts
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (10, 'Dragon-growing Stones', 'Stones theorized by scholars to accelerate the growth rate of newborn dragons. Their source and production are to be investigated and stopped by the party.', NULL, 'VERY_RARE', 1, NULL);
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (11, 'Spear (Rotten Ambusher)', 'A spear carried by one of the rotten-looking ambushers at Boltan.', NULL, 'COMMON', 0, NULL);
+INSERT INTO Item (item_id, item_name, item_description, value_in_gold, rarity, is_magical, creator_id) VALUES (12, 'Armor (Rotten Ambusher)', 'Armor worn by one of the rotten-looking ambushers at Boltan.', NULL, 'COMMON', 0, NULL);
+
+-- Event Table Inserts (Includes original Session 4 events + new placeholders)
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (22, 'Party downtime and use of Heldrax''s loot.', 'GENERAL', 'Post-Heldrax Victory');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (23, 'Party summoned by tLoB; meets Silva.', 'GENERAL', 'New Briefing');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (24, 'Silva briefs party on draconic threat, Black Skeledragon, dragon-growing stones, and broken treaty.', 'GENERAL', 'New Briefing');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (25, 'Silva reports three dragon attacks (Briver, two in south; one caused storms).', 'HISTORICAL', 'Recent Past');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (26, 'Vince remembers theory about dragons leaking magic causing calamities.', 'GENERAL', 'Character Knowledge');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (27, 'Briefing interrupted by distressed villager from Faerie Whisper.', 'GENERAL', 'Plot Hook');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (28, 'Distressed villager attacks party, spreads necrotic worms to Leonard.', 'ENCOUNTER', 'Plague Introduction');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (29, 'Stella burns Leonard''s wound to kill necrotic worms.', 'GENERAL', 'Medical Aid');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (30, 'Vince inspects villager''s corpse, identifies worms as Necrotic magic.', 'GENERAL', 'Investigation');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (31, 'Party dispatches second zombie from Faerie Whisper.', 'ENCOUNTER', 'Plague Confirmation');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (32, 'Necrotic Worm Plague identified as cause of zombification.', 'GENERAL', 'Discovery'); -- This Event will represent the "Plague" concept
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (33, 'Party reports plague to tLoB and Silva; tasked to go to Faerie Whisper.', 'GENERAL', 'New Mission');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (34, 'Party approaches Faerie Whisper; area is miasmic and rotten.', 'GENERAL', 'Travel');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (35, 'Vince theorizes dragon type causing Faerie Whisper''s condition (Copper, Black, or Skeletal).', 'GENERAL', 'Character Knowledge');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (36, 'Party ambushed by 5 rotten characters at the edge of Boltan.', 'ENCOUNTER', 'Ambush');
+INSERT INTO Event (event_id, event_description, event_type, era) VALUES (37, 'tLoB Operations and Briefings Context', 'GENERAL', 'Ongoing'); -- New Placeholder Event for "tLoB" activities
+
+-- Event_Participants Table Inserts (No changes needed here from previous version, assuming IDs are correct)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 22); -- Vince, Downtime
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 22); -- Stella, Downtime
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 22); -- Leonard, Downtime
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 23); -- Vince, Summoned, meets Silva
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 23); -- Stella, Summoned, meets Silva
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 23); -- Leonard, Summoned, meets Silva
+INSERT INTO Event_Participants (character_id, event_id) VALUES (14, 23); -- Silva, Meets party
+INSERT INTO Event_Participants (character_id, event_id) VALUES (14, 24); -- Silva, Briefs party (Event 24 also covers broken treaty)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 24); -- Vince, Briefed by Silva
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 24); -- Stella, Briefed by Silva
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 24); -- Leonard, Briefed by Silva
+INSERT INTO Event_Participants (character_id, event_id) VALUES (14, 25); -- Silva, Reports dragon attacks
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 26); -- Vince, Remembers theory
+INSERT INTO Event_Participants (character_id, event_id) VALUES (16, 27); -- Villager (Turned Zombie 1), Interrupts briefing
+INSERT INTO Event_Participants (character_id, event_id) VALUES (16, 28); -- Villager (Turned Zombie 1), Attacks party
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 28); -- Leonard, Attacked by villager, infected
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 28); -- Vince, Witness/Participant in attack
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 28); -- Stella, Witness/Participant in attack
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 29); -- Stella, Burns Leonard's wound
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 29); -- Leonard, Wound treated by Stella
+INSERT INTO Event_Participants (character_id, event_id) VALUES (18, 29); -- Necrotic Worm, Killed by Stella's action
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 30); -- Vince, Inspects corpse
+INSERT INTO Event_Participants (character_id, event_id) VALUES (16, 30); -- Villager (Turned Zombie 1), Corpse inspected
+INSERT INTO Event_Participants (character_id, event_id) VALUES (18, 30); -- Necrotic Worm, Identified by Vince
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 31); -- Vince, Dispatches second zombie
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 31); -- Stella, Dispatches second zombie
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 31); -- Leonard, Dispatches second zombie
+INSERT INTO Event_Participants (character_id, event_id) VALUES (17, 31); -- Villager (Turned Zombie 2), Dispatched by party
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 32); -- Vince, Party identifies plague (Event 32 is the plague identification)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 33); -- Vince, Reports to tLoB/Silva
+INSERT INTO Event_Participants (character_id, event_id) VALUES (14, 33); -- Silva, Receives report, tasks party
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 34); -- Vince, Approaches Faerie Whisper
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 34); -- Stella, Approaches Faerie Whisper
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 34); -- Leonard, Approaches Faerie Whisper
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 35); -- Vince, Theorizes dragon type
+INSERT INTO Event_Participants (character_id, event_id) VALUES (3, 36); -- Vince, Ambushed
+INSERT INTO Event_Participants (character_id, event_id) VALUES (7, 36); -- Stella, Ambushed
+INSERT INTO Event_Participants (character_id, event_id) VALUES (4, 36); -- Leonard, Ambushed
+INSERT INTO Event_Participants (character_id, event_id) VALUES (19, 36); -- Rotten Ambusher, Ambushes party (representing the group)
+INSERT INTO Event_Participants (character_id, event_id) VALUES (20, 36); -- Rotten Ambusher (Leader), Ambushes party
+INSERT INTO Event_Participants (character_id, event_id) VALUES (14, 37); -- Silva, involved in tLoB Operations/Briefings (Event 37)
+-- (If tLoB is represented by an NPC like 'Officer of tLoB' (Char ID 8), they would also be a participant in Event 37)
+-- INSERT INTO Event_Participants (character_id, event_id) VALUES (8, 37); -- Officer of tLoB, involved in tLoB Operations
+
+-- GenericRelation Table Inserts (Modified to use placeholder entity IDs)
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (28, 'CHARACTER', 14, 'EVENT', 37, 'Associated with tLoB activities/briefings (represented by Event 37).', 5);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (29, 'CHARACTER', 14, 'CHARACTER', 15, 'Tasked party to hunt The Black Skeledragon.', 5);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (30, 'CHARACTER', 14, 'ITEM', 10, 'Informed party about Dragon-growing Stones and their effect.', 5);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (31, 'LOCATION', 19, 'EVENT', 24, 'Subject of a broken border treaty (discussion part of Event 24).', 5);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (32, 'CHARACTER', 18, 'EVENT', 32, 'Are vectors for the Necrotic Worm Plague (represented by Event 32).', 5);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (33, 'CHARACTER', 16, 'CHARACTER', 18, 'Infected Leonard with Necrotic Worms.', 5);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (34, 'LOCATION', 20, 'EVENT', 32, 'Is the origin/center of the Necrotic Worm Plague (represented by Event 32).', 5);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (35, 'LOCATION', 20, 'CHARACTER', 3, 'Vince theorized its condition caused by a Copper, Black, or Skeletal Dragon.', 5);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (36, 'CHARACTER', 20, 'ITEM', 11, 'Wields a spear.', 5);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (37, 'CHARACTER', 20, 'ITEM', 12, 'Wears armor.', 5);
+INSERT INTO GenericRelation (relation_id, Table1Name, Table1ID, Table2Name, Table2ID, relation_description, relation_appearance) VALUES (38, 'EVENT', 25, 'LOCATION', 22, 'Two of the three dragon attacks Silva mentioned occurred in the Southern Regions (Location 22).', 5);

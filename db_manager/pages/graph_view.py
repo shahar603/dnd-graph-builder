@@ -135,10 +135,18 @@ GRAPH_VIEW_HTML = '''
             // Filter out invalid links (where source or target node doesn't exist)
             graph.links = graph.links.filter(link => link.source && link.target);
 
-            const simulation = d3.forceSimulation(graph.nodes)
-                .force("link", d3.forceLink(graph.links).id(d => d.id).distance(100))
-                .force("charge", d3.forceManyBody().strength(-300))
-                .force("center", d3.forceCenter(width / 2, height / 2));
+            const simulation  = d3.forceSimulation(graph.nodes)
+                .force("link", d3.forceLink(graph.links)
+                    .id(d => d.id)
+                    .distance(120)
+                    .strength(0.1))
+                .force("charge", d3.forceManyBody()
+                    .strength(-400)
+                    .distanceMax(500))
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("collision", d3.forceCollide().radius(20))
+                .force("x", d3.forceX(width / 2).strength(0.05))
+                .force("y", d3.forceY(height / 2).strength(0.05));
 
             const link = g.append("g")
                 .attr("stroke", "#999")
